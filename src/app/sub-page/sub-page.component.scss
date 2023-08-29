@@ -1,0 +1,12 @@
+.subpage-1 {
+  grid-template-columns: 4.5cm 1fr;
+  grid-template-rows: 4.5cm 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header"
+    ". .";
+}
+
+.subpage-1 .subpage-header {
+  grid-area: header;
+}

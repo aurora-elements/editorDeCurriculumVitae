@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --page-width: 21cm;
+  --page-min-height: 29.7cm;
+  --space: 1.5cm;
+  --headline-2-size: 13pt;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FAFAFA;
+  font: 12pt "Calibri";
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}

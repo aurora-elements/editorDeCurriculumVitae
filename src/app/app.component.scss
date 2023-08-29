@@ -1,0 +1,157 @@
+app-page {
+  width: var(--page-width);
+  min-height: var(--page-min-height);
+  padding: var(--space);
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: block
+}
+
+app-page::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 6cm;
+  min-height: 29.7cm;
+  background-color: #2c323e;
+  top: 0;
+  left: 0;
+}
+
+app-sub-page {
+  padding: 0;
+  border: 1px white solid;
+  height: 266mm;
+  outline: var(--space) #FFffff solid;
+  display: grid;
+  grid-gap: 0 var(--space);
+  grid-template-columns: 4.5cm 1fr;
+}
+
+.subpage-1 {
+  grid-template-columns: 4.5cm 1fr;
+  grid-template-rows: 4.5cm 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header"
+    ". .";
+}
+
+.subpage-1 .subpage-header {
+  grid-area: header;
+}
+
+
+
+.content-left {
+  padding-right: var(--space);
+  color: white;
+  position: relative;
+}
+
+.content-left header {
+  padding-bottom: var(--space);
+}
+
+.content-left h2 {
+  color: white;
+  margin: 0;
+  font-weight: 500;
+  font: var(--headline-2-size);
+  letter-spacing: .15mm;
+}
+
+.avatar {
+  max-width: 100%;
+  position: relative;
+  border-radius: 100%;
+  filter: grayscale(1)
+}
+
+.headline {
+  position: relative;
+}
+
+.headline-right {
+  color: #2c323e;
+}
+
+.headline-left::before {
+  content: '';
+  position: absolute;
+  width: 8mm;
+  height: .3mm;
+  background-color: white;
+  bottom: -2mm;
+}
+
+.headline-right::before {
+  content: '';
+  position: absolute;
+  width: 8mm;
+  height: .3mm;
+  background-color: #2c323e;
+  bottom: -2mm;
+}
+
+.content-right .header {
+  padding-bottom: var(--space);
+}
+
+.header h1 {
+  color: #2c323e;
+  font-size: 30pt;
+  line-height: 1.2;
+  margin-top: 0;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.content-right .header h2 {
+  color: #2c323e;
+  font: 14pt;
+  line-height: 1.2;
+  margin-top: 0;
+  font-weight: 500;
+  opacity: .5;
+  letter-spacing: .5pt;
+  margin-bottom: 0;
+}
+
+.content-block h2 {
+  color: #2c323e;
+  font: var(--headline-2-size);
+  line-height: 1.2;
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: .5pt;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+
+  .subpage {
+    padding: 0;
+    border: 1px white solid;
+    height: 266.6mm;
+    outline: var(--space) #ffffff solid;
+  }
+}
