@@ -1,4 +1,46 @@
-<div class="book">
-  <app-page />
-    + Page hinzufügen
-</div>
+<app-header>
+  <button 
+    mat-icon-button 
+    (click)="drawer.toggle()">
+    <mat-icon>settings</mat-icon>
+  </button>
+</app-header>
+<mat-drawer-container 
+  class="example-container"
+  [hasBackdrop]="false">
+  <mat-drawer 
+    #drawer 
+    mode="side"
+    position="end"
+  >
+    <div class="drawer-container">
+      <mat-slide-toggle 
+        [checked]="showTopSkills"
+        (change)="onChange($event)"
+        name="showTopSkills">
+        "Top-Skills" anzeigen
+      </mat-slide-toggle>
+      <br>
+      <mat-slide-toggle 
+        [checked]="showCertificacions"
+        (change)="onChange($event)"
+        name="showCertificacions">
+        "Zertifizierungen" anzeigen
+      </mat-slide-toggle>
+      <br>
+      <mat-slide-toggle 
+        [checked]="showAboutMe"
+        (change)="onChange($event)"
+        name="showAboutMe">
+        "Über mich" anzeigen
+      </mat-slide-toggle>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="book">
+      <app-page />
+        + Page hinzufügen
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+

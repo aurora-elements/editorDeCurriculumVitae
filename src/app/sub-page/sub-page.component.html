@@ -1,32 +1,132 @@
 <div class="subpage-header">
   <aside class="content-left">
     <header>
-      <img class="avatar" src="avatar.jpg" />
+      <img class="avatar" src="./assets/img/avatar.jpg" />
     </header>
   </aside>
   <section class="content-right">
     <header class="header">
-      <h1>Marcus Kramer</h1>
-      <h2>Web Developer</h2>
+      <h1 
+        #el_name 
+        contenteditable="true" 
+        (blur)="name=el_name.innerText" 
+        class="headline h-1">
+        {{ name }}
+      </h1>
+      <h2
+        #el_position
+        contenteditable="true" 
+        (blur)="position=el_position.innerText"  
+        class="headline h-2">
+        {{ position }}
+      </h2>
     </header>
-    <section class="content-block">
-      <header>
-        <h2 class="headline headline-right">Profile</h2>
-      </header>
-    </section>
   </section>
 </div>
-<aside class="content-left">
+<aside class="content-left text-white">
   <section>
     <header>
-      <h2 class="headline headline-left">Kontakt</h2>
+      <h3 class="headline headline-left h-3">Kontakt</h3>
     </header>
+    <div class="space-content-block">
+      <h4 class="headline h-4 text-white">Telefon</h4>
+      <p 
+        #el_phone
+        contenteditable="true"
+        (blur)="phone=el_phone.innerText">
+        {{ phone }}
+      </p>
+    </div>
+    <div class="space-content-block">
+      <h4 class="headline h-4 text-white">E-Mail</h4>
+      <p
+        #el_email 
+        contenteditable="true"
+        (blur)="email=el_email.innerHTML"
+        [innerHTML]="email"></p>
+    </div>
+    <div class="space-content-block">
+      <h4 class="headline h-4 text-white">Adresse</h4>
+      <p 
+        #el_address
+        contenteditable="true"
+        (blur)="address=el_address.innerHTML"
+        [innerHTML]="address">
+      </p>
+    </div>
+  </section>
+  <section
+    *ngIf="showTopSkills"
+    class="space-content-block--top space-content-block">
+    <header>
+      <h3 class="headline headline-left h-3">Top-Skills</h3>
+    </header>
+    <ul>
+      <li>Vue</li>
+      <li>Angular</li>
+      <li>JavaScript</li>
+      <li>CSS, LESS, SCSS</li>
+      <li>UI / UX Design</li>
+      <li>GitLab</li>
+      <li>Web-Components</li>
+    </ul>
+  </section>
+  <section
+    *ngIf="showCertificacions"
+    class="space-content-block--top space-content-block">
+    <header>
+      <h3 class="headline headline-left h-3">Zertifizierungen</h3>
+    </header>
+    <ul>
+      <li>Vue 3</li>
+      <li>Vue 2, Vuetify & Vuex</li>
+      <li>Angular 2</li>
+      <li>Typescript 2</li>
+      <li>Web Components</li>
+    </ul>
+  </section>
+  <section
+    *ngIf="languagesVisible" 
+    class="space-content-block--top space-content-block">
+    <header>
+      <h3 class="headline headline-left h-3">Sprachen</h3>
+    </header>
+    <ul class="no-space">
+      <li class="points-wrapper">
+        <span class="point active"></span>
+        <span class="point active"></span>
+        <span class="point active"></span>
+        <span class="point active"></span>
+        Deutsch
+      </li>
+      <li class="points-wrapper">
+        <span class="point active"></span>
+        <span class="point"></span>
+        <span class="point"></span>
+        <span class="point"></span>
+        Englisch
+      </li>
+      <li class="points-wrapper">
+        <span class="point active"></span>
+        <span class="point active"></span>
+        <span class="point"></span>
+        <span class="point"></span>
+        Spanisch
+      </li>
+    </ul>
   </section>
 </aside>
 <section class="content-right">
-  <section class="content-block">
+  <section *ngIf="showAboutMe" class="content-block">
     <header>
-      <h2 class="headline headline-right">Profile</h2>
+      <h3 class="headline headline-right h-3">Über mich</h3>
     </header>
+    <p 
+      #el_aboutMe
+      contenteditable="true"
+      spellcheck="true"
+      (blur)="aboutMe=el_aboutMe.innerText">
+      {{ aboutMe }}
+    </p>
   </section>
 </section>
