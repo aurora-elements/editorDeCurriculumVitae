@@ -14,31 +14,12 @@
     position="end"
   >
     <div class="drawer-container">
-      <mat-slide-toggle 
-        [checked]="showTopSkills"
-        (change)="onChange($event)"
-        name="showTopSkills">
-        "Top-Skills" anzeigen
-      </mat-slide-toggle>
-      <br>
-      <mat-slide-toggle 
-        [checked]="showCertificacions"
-        (change)="onChange($event)"
-        name="showCertificacions">
-        "Zertifizierungen" anzeigen
-      </mat-slide-toggle>
-      <br>
-      <mat-slide-toggle 
-        [checked]="showAboutMe"
-        (change)="onChange($event)"
-        name="showAboutMe">
-        "Über mich" anzeigen
-      </mat-slide-toggle>
+      <app-settings />
     </div>
   </mat-drawer>
   <mat-drawer-content>
     <div class="book">
-      <app-page />
+      <app-page class="subpage-1"/>
         + Page hinzufügen
     </div>
   </mat-drawer-content>

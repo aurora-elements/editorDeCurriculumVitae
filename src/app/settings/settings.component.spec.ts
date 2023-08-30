@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubPageComponent } from './sub-page.component';
+import { SettingsComponent } from './settings.component';
 
-describe('SubPageComponent', () => {
-  let component: SubPageComponent;
-  let fixture: ComponentFixture<SubPageComponent>;
+describe('SettingsComponent', () => {
+  let component: SettingsComponent;
+  let fixture: ComponentFixture<SettingsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SubPageComponent]
+      declarations: [SettingsComponent]
     });
-    fixture = TestBed.createComponent(SubPageComponent);
+    fixture = TestBed.createComponent(SettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

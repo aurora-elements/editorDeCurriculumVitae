@@ -11,16 +11,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
-import { SubPageComponent } from './sub-page/sub-page.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
-    SubPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

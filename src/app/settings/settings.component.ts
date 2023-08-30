@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSlideToggleModule, MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { LocalService } from '../../services/local.service';
+import { LocalService } from '../services/local.service';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-settings-dialog',
-  templateUrl: './settings-dialog.component.html',
-  styleUrls: ['./settings-dialog.component.scss'],
-  standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatSlideToggleModule]
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss']
 })
-export class SettingsDialogComponent {
+export class SettingsComponent {
   showTopSkills: boolean
   showCertificacions: boolean
   showAboutMe: boolean
@@ -25,7 +21,7 @@ export class SettingsDialogComponent {
   onChange($event: MatSlideToggleChange) {
     const key = $event.source.name as string
     const value = $event.source.checked as unknown as string
-    
+
     if (value) {
       this.localStore.saveData(key, value)
     } else {
@@ -33,4 +29,3 @@ export class SettingsDialogComponent {
     }
   }
 }
-
