@@ -14,13 +14,25 @@ import { PageComponent } from './page/page.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './settings/settings.component';
+import { PageHeaderComponent } from './page/page-header/page-header.component';
+import { ContactComponent } from './page/contact/contact.component';
+import { TopSkillsComponent } from './page/top-skills/top-skills.component';
+import { CertificacionsComponent } from './page/certificacions/certificacions.component';
+import { LanguagesComponent } from './page/languages/languages.component';
+import { AboutMeComponent } from './page/about-me/about-me.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
     HeaderComponent,
-    SettingsComponent
+    SettingsComponent,
+    PageHeaderComponent,
+    ContactComponent,
+    TopSkillsComponent,
+    CertificacionsComponent,
+    LanguagesComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,

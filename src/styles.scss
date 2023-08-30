@@ -25,6 +25,39 @@ body, html {
   -moz-box-sizing: border-box;
 }
 
+.content-left {
+  padding-right: var(--space);
+  color: white;
+  position: relative;
+
+  header {
+    padding-bottom: var(--space-header);
+  }
+
+  h2,
+  h3 {
+    color: white;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.content-right {
+  padding-left: var(--space);
+  color: #2c323e;
+
+  header {
+    padding-bottom: var(--space-header);
+  }
+
+  p {
+    text-align: justify;
+    margin: 0;
+  }
+}
+
 .headline {
   color: #2c323e;
   line-height: 1.2;
@@ -54,6 +87,35 @@ body, html {
 
 .text-white {
   color: white!important;
+}
+
+.headline {
+  position: relative;
+
+  &-right {
+    color: #2c323e;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8mm;
+      height: .3mm;
+      background-color: #2c323e;
+      bottom: -2mm;
+    }
+  }
+
+  &-left {
+    color: white;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8mm;
+      height: .3mm;
+      background-color: white;
+      bottom: -2mm;
+    }
+  }
 }
 
 .space-content-block {

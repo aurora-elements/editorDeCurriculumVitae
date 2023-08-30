@@ -1,0 +1,23 @@
+<aside class="content-left">
+  <img 
+    class="avatar" 
+    [src]="avatarUrl" />
+</aside>
+<section class="content-right">
+  <header class="header">
+    <h1 
+      #el_name 
+      contenteditable="true" 
+      (blur)="name=el_name.innerText" 
+      class="headline h-1">
+      {{ name }}
+    </h1>
+    <h2
+      #el_position
+      contenteditable="true" 
+      (blur)="position=el_position.innerText"  
+      class="headline h-2">
+      {{ position }}
+    </h2>
+  </header>
+</section>

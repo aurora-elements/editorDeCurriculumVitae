@@ -1,0 +1,14 @@
+:host {
+  display: grid;
+  grid-template-columns: var(--left-size) 1fr;
+  grid-template-rows: var(--left-size);
+}
+.content-left {
+  padding-right: var(--space);
+}
+.avatar {
+  max-width: 100%;
+  position: relative;
+  border-radius: 100%;
+  filter: grayscale(1)
+}
