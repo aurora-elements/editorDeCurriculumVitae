@@ -9,15 +9,15 @@
       #el_name 
       contenteditable="true" 
       (blur)="name=el_name.innerText" 
-      class="headline h-1">
-      {{ name }}
+      class="headline h-1"
+      [innerHTML]="name">
     </h1>
     <h2
       #el_position
       contenteditable="true" 
       (blur)="position=el_position.innerText"  
-      class="headline h-2">
-      {{ position }}
+      class="headline h-2"
+      [innerHTML]="position">
     </h2>
   </header>
 </section>

@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AboutMeComponent {
   @Input()
-  aboutMe: string = 'Schreib etwas über dich, deine Kenntnisse, deine Erfahrungen usw.'
+  aboutMe: string = '<i class="color-primary">Schreib etwas über dich, deine Kenntnisse, deine Erfahrungen usw.</i>'
 }

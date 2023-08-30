@@ -6,8 +6,8 @@
   <p 
     #el_phone
     contenteditable="true"
-    (blur)="phone=el_phone.innerText">
-    {{ phone }}
+    (blur)="phone=el_phone.innerText"
+    [innerHTML]="phone">
   </p>
 </div>
 <div class="space-content-block">

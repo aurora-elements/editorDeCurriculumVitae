@@ -7,9 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class ContactComponent {
   @Input()
-  phone: string = 'Deine Telefonnummer'
+  phone: string = '<i class="color-primary">Deine Telefonnummer</i>'
   @Input()
-  email: string = 'deine@email.adresse'
+  email: string = '<i class="color-primary">deine@email.adresse</i>'
   @Input()
-  address: string = 'Straßenname, <br> PLZ Wohnort'
+  address: string = '<i class="color-primary">Straßenname, <br> PLZ Wohnort</i>'
 }

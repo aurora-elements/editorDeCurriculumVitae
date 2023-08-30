@@ -2,11 +2,7 @@
   <h3 class="headline headline-left h-3">Top-Skills</h3>
 </header>
 <ul>
-  <li>Vue</li>
-  <li>Angular</li>
-  <li>JavaScript</li>
-  <li>CSS, LESS, SCSS</li>
-  <li>UI / UX Design</li>
-  <li>GitLab</li>
-  <li>Web-Components</li>
+  <li *ngFor="let topSkill of topSkills">
+    {{ topSkill }}
+  </li>
 </ul>

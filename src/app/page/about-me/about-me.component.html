@@ -5,6 +5,6 @@
   #el_aboutMe
   contenteditable="true"
   spellcheck="true"
-  (blur)="aboutMe=el_aboutMe.innerText">
-  {{ aboutMe }}
+  (blur)="aboutMe=el_aboutMe.innerText"
+  [innerHTML]="aboutMe">
 </p>

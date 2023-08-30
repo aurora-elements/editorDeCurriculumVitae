@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-skills.component.scss']
 })
 export class TopSkillsComponent {
-
+  topSkills:Array<string> = [
+    'Vue',
+    'Angular',
+    'Javascript',
+    'CSS, LESS, SCSS',
+    'UI/UX Design',
+    'GitLab',
+    'Web-Components'
+  ]
 }
