@@ -24,18 +24,16 @@ export class PageComponent implements OnInit {
   @Input() showTopSkills: boolean
   @Input() showCertificacions: boolean
   @Input() showAboutMe: boolean
+  @Input() showLanguages: boolean
 
   constructor(private localStore: LocalService) {
     this.showTopSkills = this.localStore.getData('showTopSkills') as unknown as boolean
     this.showCertificacions = this.localStore.getData('showCertificacions') as unknown as boolean
     this.showAboutMe = this.localStore.getData('showAboutMe') as unknown as boolean
+    this.showLanguages = this.localStore.getData('showLanguages') as unknown as boolean
   }
 
   ngOnInit() {
 
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes: ', changes)
   }
 }

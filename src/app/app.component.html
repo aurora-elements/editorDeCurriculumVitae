@@ -19,7 +19,12 @@
   </mat-drawer>
   <mat-drawer-content>
     <div class="book">
-      <app-page class="subpage-1"/>
+      <app-page 
+        class="subpage-1"
+        [showTopSkills]="showTopSkills"
+        [showCertificacions]="showCertificacions"
+        [showAboutMe]="showAboutMe"
+        [showLanguages]="showLanguages" />
         + Page hinzufügen
     </div>
   </mat-drawer-content>

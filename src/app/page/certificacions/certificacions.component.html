@@ -3,7 +3,9 @@
     Zertifizierungen
   </h3>
 </header>
-<ul>
+<ul 
+  class="clickable"
+  (click)="editCertificacions()">
   <li *ngFor="let certificacion of certificacions">
     {{ certificacion }}
   </li>

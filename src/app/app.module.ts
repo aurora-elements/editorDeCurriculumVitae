@@ -8,6 +8,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
@@ -20,6 +23,7 @@ import { TopSkillsComponent } from './page/top-skills/top-skills.component';
 import { CertificacionsComponent } from './page/certificacions/certificacions.component';
 import { LanguagesComponent } from './page/languages/languages.component';
 import { AboutMeComponent } from './page/about-me/about-me.component';
+import { DialogCertificacionsComponent } from './page/certificacions/dialog-certificacions/dialog-certificacions.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { AboutMeComponent } from './page/about-me/about-me.component';
     TopSkillsComponent,
     CertificacionsComponent,
     LanguagesComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    DialogCertificacionsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,9 @@ import { AboutMeComponent } from './page/about-me/about-me.component';
     MatDialogModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
     NgIf
   ],
   providers: [],

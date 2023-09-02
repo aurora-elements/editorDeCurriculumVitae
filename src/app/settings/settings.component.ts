@@ -11,11 +11,13 @@ export class SettingsComponent {
   showTopSkills: boolean
   showCertificacions: boolean
   showAboutMe: boolean
+  showLanguages: boolean
 
   constructor(private localStore: LocalService) {
     this.showTopSkills = this.localStore.getData('showTopSkills') as unknown as boolean
     this.showCertificacions = this.localStore.getData('showCertificacions') as unknown as boolean
     this.showAboutMe = this.localStore.getData('showAboutMe') as unknown as boolean
+    this.showLanguages = this.localStore.getData('showLanguages') as unknown as boolean
   }
 
   onChange($event: MatSlideToggleChange) {

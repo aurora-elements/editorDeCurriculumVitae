@@ -21,3 +21,11 @@
 >
   "Über mich" anzeigen
 </mat-slide-toggle>
+<br />
+<mat-slide-toggle
+  [checked]="showLanguages"
+  (change)="onChange($event)"
+  name="showLanguages"
+>
+  "Sprachen" anzeigen
+</mat-slide-toggle>

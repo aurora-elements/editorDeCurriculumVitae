@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-top-skills',
@@ -15,4 +15,7 @@ export class TopSkillsComponent {
     'GitLab',
     'Web-Components'
   ]
+
+  @Input() 
+  showTopSkills: boolean = true;
 }
