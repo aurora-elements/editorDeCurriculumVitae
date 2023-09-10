@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { DialogCertificacionsComponent } from './dialog-certificacions/dialog-certificacions.component';
+import { MatDialog } from "@angular/material/dialog";
+import { LocalService } from '../../services/local.service';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-certificacions',
@@ -8,27 +9,31 @@ import { DialogCertificacionsComponent } from './dialog-certificacions/dialog-ce
   styleUrls: ['./certificacions.component.scss']
 })
 export class CertificacionsComponent {
-  certificacions: Array<string> = [
-    'Vue 3',
-    'Vue 2, Vuetify & Vuex',
-    'Angular 2',
-    'Typescript 2',
-    'Web-Components'
-  ]
+  certificacions: Array<string>
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private localStorage: LocalService) {
+    if (this.localStorage.getData('certificacions') !== null) {
 
-  editCertificacions() {
-    const dialogConfig = new MatDialogConfig();
+      const string = this.localStorage.getData('certificacions')
+      const certificacionsArray = string!.split(/,/)
+      this.certificacions = certificacionsArray
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    } else {
+      this.certificacions = [
+        'Zertifizierung 1',
+        'Zertifizierung 2',
+        'Zertifizierung 3'
+      ]
+    }
+  }
 
-    dialogConfig.data = {
-      id: 1,
-      title: 'Angular For Beginners'
-    };
-
-    this.dialog.open(DialogCertificacionsComponent, dialogConfig);
+  edit(): void {
+    this.dialog.open(DialogComponent, {
+      data: {
+        name: 'Zertifizierungen',
+        storageName: 'certificacions',
+        items: this.certificacions
+      }
+    })
   }
 }

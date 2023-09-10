@@ -11,6 +11,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
+import { NgFor } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
@@ -23,7 +25,7 @@ import { TopSkillsComponent } from './page/top-skills/top-skills.component';
 import { CertificacionsComponent } from './page/certificacions/certificacions.component';
 import { LanguagesComponent } from './page/languages/languages.component';
 import { AboutMeComponent } from './page/about-me/about-me.component';
-import { DialogCertificacionsComponent } from './page/certificacions/dialog-certificacions/dialog-certificacions.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { DialogCertificacionsComponent } from './page/certificacions/dialog-cert
     CertificacionsComponent,
     LanguagesComponent,
     AboutMeComponent,
-    DialogCertificacionsComponent
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +52,11 @@ import { DialogCertificacionsComponent } from './page/certificacions/dialog-cert
     MatSlideToggleModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
     FormsModule,
-    NgIf
+    MatChipsModule,
+    NgIf,
+    NgFor
   ],
   providers: [],
   bootstrap: [AppComponent]

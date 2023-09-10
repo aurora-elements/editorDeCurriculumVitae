@@ -3,7 +3,9 @@
     Top-Skills
   </h3>
 </header>
-<ul>
+<ul
+  class="clickable"
+  (click)="edit()">
   <li *ngFor="let topSkill of topSkills">
     {{ topSkill }}
   </li>
