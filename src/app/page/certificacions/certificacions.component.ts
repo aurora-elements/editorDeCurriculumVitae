@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { CertificacionsService } from 'src/app/services/certificacions.service';
+import { DialogCertificationsComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-certificacions',
@@ -23,12 +23,9 @@ export class CertificacionsComponent implements OnInit {
   }
 
   edit(): void {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogCertificationsComponent, {
       width: '400px',
       data: {
-        name: 'Zertifizierungen',
-        storageName: 'certificacions',
-        isObjectArray: false,
         items: this.certificacions
       }
     })

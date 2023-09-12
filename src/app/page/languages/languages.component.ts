@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { ILanguage } from 'src/app/models/language.model';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { DialogLanguagesComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-languages',
@@ -25,11 +25,9 @@ export class LanguagesComponent implements OnInit {
   }
 
   edit(): void {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogLanguagesComponent, {
       width: '400px',
       data: {
-        name: 'Sprachen',
-        isObjectArray: true,
         items: this.languages
       }
     })

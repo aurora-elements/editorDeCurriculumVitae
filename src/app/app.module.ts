@@ -25,7 +25,9 @@ import { TopSkillsComponent } from './page/top-skills/top-skills.component';
 import { CertificacionsComponent } from './page/certificacions/certificacions.component';
 import { LanguagesComponent } from './page/languages/languages.component';
 import { AboutMeComponent } from './page/about-me/about-me.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogCertificationsComponent } from './page/certificacions/dialog/dialog.component';
+import { DialogLanguagesComponent } from './page/languages/dialog/dialog.component';
+import { DialogTopSkillsComponent } from './page/top-skills/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { DialogComponent } from './dialog/dialog.component';
     CertificacionsComponent,
     LanguagesComponent,
     AboutMeComponent,
-    DialogComponent
+    DialogCertificationsComponent,
+    DialogLanguagesComponent,
+    DialogTopSkillsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { DialogTopSkillsComponent } from './dialog/dialog.component';
 import { TopSkillsService } from 'src/app/services/top-skills.service';
 
 @Component({
@@ -26,12 +26,9 @@ export class TopSkillsComponent implements OnInit {
   }
 
   edit(): void {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogTopSkillsComponent, {
       width: '400px',
       data: {
-        name: 'Top-Skills',
-        storageName: 'top-skills',
-        isObjectArray: false,
         items: this.topSkills
       }
     })
