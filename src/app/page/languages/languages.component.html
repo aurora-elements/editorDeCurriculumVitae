@@ -1,26 +1,25 @@
-<header>
+<header
+  class="clickable"
+  (click)="edit()">
   <h3 class="headline headline-left h-3">Sprachen</h3>
+  <mat-icon>edit</mat-icon>
 </header>
-<ul class="no-space">
-  <li class="points-wrapper">
-    <span class="point active"></span>
-    <span class="point active"></span>
-    <span class="point active"></span>
-    <span class="point active"></span>
-    Deutsch
-  </li>
-  <li class="points-wrapper">
-    <span class="point active"></span>
-    <span class="point"></span>
-    <span class="point"></span>
-    <span class="point"></span>
-    Englisch
-  </li>
-  <li class="points-wrapper">
-    <span class="point active"></span>
-    <span class="point active"></span>
-    <span class="point"></span>
-    <span class="point"></span>
-    Spanisch
+<ul
+  class="clickable"
+  (click)="edit()">
+  <li *ngFor="let language of languages" class="points-wrapper">
+    <span 
+      class="point active"
+      [ngClass]="language.level > 0 ? 'active' : ''"></span>
+    <span 
+      class="point"
+      [ngClass]="language.level > 1 ? 'active' : ''"></span>
+    <span 
+      class="point"
+      [ngClass]="language.level > 2 ? 'active' : ''"></span>
+    <span 
+      class="point"
+      [ngClass]="language.level > 3 ? 'active' : ''"></span>
+    {{ language.name }}
   </li>
 </ul>

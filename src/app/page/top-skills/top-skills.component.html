@@ -1,11 +1,10 @@
-<header>
-  <h3 class="headline headline-left h-3">
-    Top-Skills
-  </h3>
-</header>
-<ul
+<header
   class="clickable"
   (click)="edit()">
+  <h3 class="headline headline-left h-3">Top-skills</h3>
+  <mat-icon>edit</mat-icon>
+</header>
+<ul>
   <li *ngFor="let topSkill of topSkills">
     {{ topSkill }}
   </li>

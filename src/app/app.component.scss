@@ -43,8 +43,13 @@ mat-drawer-content {
     box-shadow: initial;
     background: initial;
     page-break-after: always;
+    padding: var(--space);
   }
   .mat-drawer-container {
     background-color: white;
+    padding: 0;
+  }
+  .mat-drawer-content {
+    padding: 0;
   }
 }

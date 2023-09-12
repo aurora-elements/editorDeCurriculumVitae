@@ -1,37 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { LocalService } from '../../services/local.service';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { CertificacionsService } from 'src/app/services/certificacions.service';
 
 @Component({
   selector: 'app-certificacions',
   templateUrl: './certificacions.component.html',
-  styleUrls: ['./certificacions.component.scss']
+  styleUrls: ['./certificacions.component.scss'],
+  providers: [CertificacionsService]
 })
-export class CertificacionsComponent {
-  certificacions: Array<string>
+export class CertificacionsComponent implements OnInit {
+  certificacions: Array<string> = []
 
-  constructor(private dialog: MatDialog, private localStorage: LocalService) {
-    if (this.localStorage.getData('certificacions') !== null) {
+  constructor(
+    private dialog: MatDialog, 
+    private certificacionsService: CertificacionsService) {
+    this.certificacionsService.get()
+  }
 
-      const string = this.localStorage.getData('certificacions')
-      const certificacionsArray = string!.split(/,/)
-      this.certificacions = certificacionsArray
-
-    } else {
-      this.certificacions = [
-        'Zertifizierung 1',
-        'Zertifizierung 2',
-        'Zertifizierung 3'
-      ]
-    }
+  ngOnInit(): void {
+    this.certificacions = this.certificacionsService.items
   }
 
   edit(): void {
     this.dialog.open(DialogComponent, {
+      width: '400px',
       data: {
         name: 'Zertifizierungen',
         storageName: 'certificacions',
+        isObjectArray: false,
         items: this.certificacions
       }
     })

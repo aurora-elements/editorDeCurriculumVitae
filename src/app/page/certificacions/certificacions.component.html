@@ -1,11 +1,11 @@
-<header>
+<header 
+  class="clickable"
+  (click)="edit()">
   <h3 class="headline headline-left h-3">
     Zertifizierungen
   </h3>
 </header>
-<ul 
-  class="clickable"
-  (click)="edit()">
+<ul>
   <li *ngFor="let certificacion of certificacions">
     {{ certificacion }}
   </li>

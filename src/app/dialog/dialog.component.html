@@ -4,13 +4,13 @@
 <form>
   <mat-dialog-content>
     <mat-form-field 
+      *ngIf="!isObjectArray; else isObjectArrayTemplate"
       appearance="outline" 
       class="dialog-chip-list">
       <mat-chip-grid
         #chipList 
         focused="false"
         class="mat-mdc-chip-set-stacked chip-grid">
-
         <mat-chip-option
           *ngFor="let item of items" 
           [removable]="true"
@@ -25,13 +25,43 @@
 
       </mat-chip-grid>
 
-      <input placeholder="Eintrag hinzufügen..."
+      <input placeholder="Eintrag hinzufügen (Enter)"
             [matChipInputFor]="chipList"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             [matChipInputAddOnBlur]="addOnBlur"
             (matChipInputTokenEnd)="add($event)"/>
 
     </mat-form-field>
+    <ng-template #isObjectArrayTemplate>
+      <mat-form-field 
+        appearance="outline" 
+        class="dialog-chip-list">
+        <mat-chip-grid
+          #chipList 
+          focused="false"
+          class="mat-mdc-chip-set-stacked chip-grid">
+          <mat-chip-option
+            *ngFor="let item of items" 
+            [removable]="true"
+            leadingIcon="dot"
+            (removed)="remove(item)">
+
+            {{ item.name }} (Niveau: {{item.level}})
+
+            <mat-icon matChipRemove>close</mat-icon>
+
+          </mat-chip-option>
+
+        </mat-chip-grid>
+
+        <input placeholder="Sprache:Sprachniveau hinzufügen (Enter)"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)"/>
+
+      </mat-form-field>
+    </ng-template>
   </mat-dialog-content>
 
   <mat-dialog-actions align="center">

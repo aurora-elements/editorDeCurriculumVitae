@@ -9,9 +9,9 @@ export class PageHeaderComponent implements OnInit {
   @Input()
   avatarUrl: string = './assets/img/avatar.jpg'
   @Input()
-  name: string = '<i class="color-primary">Wie lautet dein Name</i>'
+  name: string = '<i class="color-primary">Vorname Nachname</i>'
   @Input()
-  position: string = '<i class="color-primary">Welchen Job hast du zur Zeit?</i>'
+  position: string = '<i class="color-primary">Mein Job</i>'
 
   ngOnInit() {
     

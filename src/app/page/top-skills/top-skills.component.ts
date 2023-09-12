@@ -1,40 +1,37 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { LocalService } from '../../services/local.service';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { TopSkillsService } from 'src/app/services/top-skills.service';
 
 @Component({
   selector: 'app-top-skills',
   templateUrl: './top-skills.component.html',
-  styleUrls: ['./top-skills.component.scss']
+  styleUrls: ['./top-skills.component.scss'],
+  providers: [TopSkillsService]
 })
-export class TopSkillsComponent {
-  topSkills:Array<string>
+export class TopSkillsComponent implements OnInit {
+  topSkills:Array<string> = []
 
   @Input() 
   showTopSkills: boolean = true;
 
-  constructor(private dialog: MatDialog, private localStorage: LocalService) {
-    if (this.localStorage.getData('top-skills') !== null) {
+  constructor(
+    private dialog: MatDialog, 
+    private topSkillsService: TopSkillsService) {
+    this.topSkillsService.get()
+  }
 
-      const string = this.localStorage.getData('top-skills')
-      const topSkillsArray = string!.split(/,/)
-      this.topSkills = topSkillsArray
-
-    } else {
-      this.topSkills = [
-        'Top-Skill 1',
-        'Top-Skill 2',
-        'Top-Skill 3'
-      ]
-    }
+  ngOnInit(): void {
+    this.topSkills = this.topSkillsService.items
   }
 
   edit(): void {
     this.dialog.open(DialogComponent, {
+      width: '400px',
       data: {
         name: 'Top-Skills',
         storageName: 'top-skills',
+        isObjectArray: false,
         items: this.topSkills
       }
     })

@@ -173,6 +173,25 @@ ul {
 }
 .clickable {
   cursor: pointer;
+  .headline {
+    float: left;
+  }
+  mat-icon {
+    float: right;
+    font-size: 16px;
+    opacity: 0;
+  }
+  &:hover {
+    color: #c2185b;
+      mat-icon {
+        opacity: 1;
+      }
+  }
+}
+@media print {
+  .clickable mat-icon {
+    display: none;
+  }
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Calibri, 'Trebuchet MS','Gill Sans','Gill Sans MT', sans-serif, sans-serif; }
