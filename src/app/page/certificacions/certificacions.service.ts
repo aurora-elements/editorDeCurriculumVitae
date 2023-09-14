@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core"
-import { LocalService } from "./local.service"
+import { LocalService } from "../../shared/local.service"
 
 @Injectable()
-export class TopSkillsService {
+export class CertificacionsService {
   constructor(private localStorage: LocalService) { }
 
-  items: Array<string> = []
-  storeName = 'top-skills'
-  itemsStore = this.localStorage.getData(this.storeName)
+  private items: Array<string> = []
+  private storeName = 'certificacions'
+  private itemsStore = this.localStorage.getData(this.storeName)
 
-  placeholder = [
-    'Top-Skill 1', 
-    'Top-Skill 2', 
-    'Top-Skill 3'
+  private placeholder = [
+    'Zertifizierung 1', 
+    'Zertifizierung 2', 
+    'Zertifizierung 3'
   ]
 
   get() {
@@ -29,6 +29,8 @@ export class TopSkillsService {
     } else {
       this.items = this.placeholder
     }
+
+    return this.items.slice()
   }
 
   set(items: string[]) {

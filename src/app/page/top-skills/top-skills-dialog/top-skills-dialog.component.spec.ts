@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogComponent } from './dialog.component';
+import { TopSkillsDialogComponent } from './top-skills-dialog.component';
 
 describe('DialogComponent', () => {
-  let component: DialogComponent;
-  let fixture: ComponentFixture<DialogComponent>;
+  let component: TopSkillsDialogComponent;
+  let fixture: ComponentFixture<TopSkillsDialogComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DialogComponent]
+      declarations: [TopSkillsDialogComponent]
     });
-    fixture = TestBed.createComponent(DialogComponent);
+    fixture = TestBed.createComponent(TopSkillsDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

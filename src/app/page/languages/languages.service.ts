@@ -1,17 +1,17 @@
 import { Injectable } from "@angular/core"
-import { ILanguage } from "../models/language.model"
-import { LocalService } from "./local.service"
+import { ILanguage } from "./language.model"
+import { LocalService } from "../../shared/local.service"
 
 @Injectable()
 export class LanguagesService {
 
   constructor(private localStorage: LocalService) {}
 
-  items: Array<ILanguage> = []
-  storeName = 'languages'
-  itemsStore = this.localStorage.getData(this.storeName)
+  private items: Array<ILanguage> = []
+  private storeName = 'languages'
+  private itemsStore = this.localStorage.getData(this.storeName)
 
-  placeholder = [
+  private placeholder = [
     {
       name: 'Sprache 1',
       level: 4
@@ -40,6 +40,8 @@ export class LanguagesService {
     } else {
       this.items = this.placeholder
     }
+
+    return this.items.slice()
   }
 
   set(items:ILanguage[]) {

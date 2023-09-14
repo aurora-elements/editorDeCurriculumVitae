@@ -10,7 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { NgFor } from '@angular/common';
 
@@ -25,9 +25,11 @@ import { TopSkillsComponent } from './page/top-skills/top-skills.component';
 import { CertificacionsComponent } from './page/certificacions/certificacions.component';
 import { LanguagesComponent } from './page/languages/languages.component';
 import { AboutMeComponent } from './page/about-me/about-me.component';
-import { DialogCertificationsComponent } from './page/certificacions/dialog/dialog.component';
-import { DialogLanguagesComponent } from './page/languages/dialog/dialog.component';
-import { DialogTopSkillsComponent } from './page/top-skills/dialog/dialog.component';
+import { CertificationsDialogComponent } from './page/certificacions/certificacions-dialog/certificacions-dialog.component';
+import { LanguagesDialogComponent } from './page/languages/languages-dialog/languages-dialog.component';
+import { TopSkillsDialogComponent } from './page/top-skills/top-skills-dialog/top-skills-dialog.component';
+import { ContactDialogComponent } from './page/contact/contact-dialog/contact-dialog.component';
+import { ClickableOverlayComponent } from './clickable-overlay/clickable-overlay.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +43,11 @@ import { DialogTopSkillsComponent } from './page/top-skills/dialog/dialog.compon
     CertificacionsComponent,
     LanguagesComponent,
     AboutMeComponent,
-    DialogCertificationsComponent,
-    DialogLanguagesComponent,
-    DialogTopSkillsComponent
+    CertificationsDialogComponent,
+    LanguagesDialogComponent,
+    TopSkillsDialogComponent,
+    ContactDialogComponent,
+    ClickableOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { DialogTopSkillsComponent } from './page/top-skills/dialog/dialog.compon
     MatFormFieldModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
     MatChipsModule,
     NgIf,
     NgFor

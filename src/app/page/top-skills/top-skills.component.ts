@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { DialogTopSkillsComponent } from './dialog/dialog.component';
-import { TopSkillsService } from 'src/app/services/top-skills.service';
+import { TopSkillsDialogComponent } from './top-skills-dialog/top-skills-dialog.component';
+import { TopSkillsService } from 'src/app/page/top-skills/top-skills.service';
 
 @Component({
   selector: 'app-top-skills',
@@ -18,15 +18,14 @@ export class TopSkillsComponent implements OnInit {
   constructor(
     private dialog: MatDialog, 
     private topSkillsService: TopSkillsService) {
-    this.topSkillsService.get()
   }
 
   ngOnInit(): void {
-    this.topSkills = this.topSkillsService.items
+    this.topSkills = this.topSkillsService.get()
   }
 
-  edit(): void {
-    this.dialog.open(DialogTopSkillsComponent, {
+  @HostListener('click') onclick() {
+    this.dialog.open(TopSkillsDialogComponent, {
       width: '400px',
       data: {
         items: this.topSkills

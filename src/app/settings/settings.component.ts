@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocalService } from '../services/local.service';
+import { LocalService } from '../shared/local.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({

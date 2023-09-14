@@ -1,15 +1,40 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
+import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { ContactService } from './contact.service';
+import { IContactData } from './contact-data.interface';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
-  @Input()
-  phone: string = '<i class="color-primary">Deine Telefonnummer</i>'
-  @Input()
-  email: string = '<i class="color-primary">deine@email.adresse</i>'
-  @Input()
-  address: string = '<i class="color-primary">Straßenname, <br> PLZ Wohnort</i>'
+export class ContactComponent implements OnInit {
+
+  contactData: IContactData
+
+  constructor(
+    private dialog: MatDialog,
+    private contactService: ContactService) {
+    this.contactData = this.contactService.get()
+  }
+
+  ngOnInit(): void {
+    this.contactService.contactDataChanged
+      .subscribe((contactData) => {
+        this.contactData = contactData
+      })
+  }
+
+  @HostListener('click') onclick() {
+    this.dialog.open(ContactDialogComponent, {
+      width: '400px',
+      data: {
+        phone: this.contactService.contactData.phone,
+        eMail: this.contactService.contactData.eMail,
+        street: this.contactService.contactData.street,
+        zipCodeAndCity: this.contactService.contactData.zipCodeAndCity
+      }
+    })
+  }
 }

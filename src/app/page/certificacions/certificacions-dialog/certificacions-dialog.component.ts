@@ -2,27 +2,25 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Inject } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IDialogData } from '../../../models/dialogData.model';
-import { LanguagesService } from '../../../services/languages.service';
-import { ILanguage } from 'src/app/models/language.model';
+import { IDialogData } from '../../../shared/dialogData.model';
+import { CertificacionsService } from '../certificacions.service';
 
 @Component({
-  selector: 'app-dialog-languages',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
-  providers: [LanguagesService]
+  selector: 'app-certificacions-dialog',
+  templateUrl: './certificacions-dialog.component.html',
+  styleUrls: ['./certificacions-dialog.component.scss'],
+  providers: [CertificacionsService]
 })
-export class DialogLanguagesComponent {
+export class CertificationsDialogComponent {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-  items: Array<ILanguage> = []
+  items: Array<any> = []
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialog: IDialogData,
-    private langService: LanguagesService) {
+    private certificacionsService: CertificacionsService) {
     this.items = this.dialog.items
-
   }
 
   add(event: MatChipInputEvent): void {
@@ -30,21 +28,14 @@ export class DialogLanguagesComponent {
 
     // Add our item
     if (value) {
-        const languageArray = value.split(':')
-
-        const item = {
-          name: languageArray[0],
-          level: Number(languageArray[1])
-        }
-
-        this.dialog.items.push(item)
+      this.dialog.items.push(value);
     }
 
     // Clear the input value
     event.chipInput!.clear();
   }
 
-  remove(item: any): void {
+  remove(item: string): void {
 
     const index = this.dialog.items.indexOf(item);
 
@@ -53,7 +44,7 @@ export class DialogLanguagesComponent {
     }
   }
 
-  save(items: Array<ILanguage>) {
-      this.langService.set(items)
+  save(items: Array<string>) {
+    this.certificacionsService.set(items)
   }
 }

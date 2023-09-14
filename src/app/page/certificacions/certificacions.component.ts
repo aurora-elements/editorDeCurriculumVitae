@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { CertificacionsService } from 'src/app/services/certificacions.service';
-import { DialogCertificationsComponent } from './dialog/dialog.component';
+import { CertificacionsService } from 'src/app/page/certificacions/certificacions.service';
+import { CertificationsDialogComponent } from './certificacions-dialog/certificacions-dialog.component';
 
 @Component({
   selector: 'app-certificacions',
@@ -15,15 +15,14 @@ export class CertificacionsComponent implements OnInit {
   constructor(
     private dialog: MatDialog, 
     private certificacionsService: CertificacionsService) {
-    this.certificacionsService.get()
   }
 
   ngOnInit(): void {
-    this.certificacions = this.certificacionsService.items
+    this.certificacions = this.certificacionsService.get()
   }
 
-  edit(): void {
-    this.dialog.open(DialogCertificationsComponent, {
+  @HostListener('click') onclick() {
+    this.dialog.open(CertificationsDialogComponent, {
       width: '400px',
       data: {
         items: this.certificacions

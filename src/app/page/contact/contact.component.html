@@ -1,37 +1,30 @@
 <header>
-  <h3 class="headline headline-left h-3 text-white">
-    Kontakt
-  </h3>
+  <h3 class="headline headline-left h-3">Kontakt</h3>
 </header>
 <div class="space-content-block">
   <h4 class="headline h-4 text-white">
     Telefon
   </h4>
-  <p 
-    #el_phone
-    contenteditable="true"
-    (blur)="phone=el_phone.innerText"
-    [innerHTML]="phone">
+  <p>
+    {{ contactData.phone }}
   </p>
 </div>
 <div class="space-content-block">
   <h4 class="headline h-4 text-white">
     E-Mail
   </h4>
-  <p
-    #el_email 
-    contenteditable="true"
-    (blur)="email=el_email.innerHTML"
-    [innerHTML]="email"></p>
+  <p>
+    {{ contactData.eMail }}
+  </p>
 </div>
 <div class="space-content-block">
   <h4 class="headline h-4 text-white">
     Adresse
   </h4>
-  <p 
-    #el_address
-    contenteditable="true"
-    (blur)="address=el_address.innerHTML"
-    [innerHTML]="address">
+  <p>
+    {{ contactData.street }}
+    <br>
+    {{ contactData.zipCodeAndCity }}
   </p>
 </div>
+<app-clickable-overlay />

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { ILanguage } from 'src/app/models/language.model';
-import { LanguagesService } from 'src/app/services/languages.service';
-import { DialogLanguagesComponent } from './dialog/dialog.component';
+import { ILanguage } from 'src/app/page/languages/language.model';
+import { LanguagesService } from 'src/app/page/languages/languages.service';
+import { LanguagesDialogComponent } from './languages-dialog/languages-dialog.component';
 
 @Component({
   selector: 'app-languages',
@@ -16,16 +16,15 @@ export class LanguagesComponent implements OnInit {
   constructor(
     private dialog: MatDialog, 
     private langService: LanguagesService) {
-    langService.get()
 
   }
 
   ngOnInit(): void {
-    this.languages = this.langService.items
+    this.languages = this.langService.get()
   }
 
-  edit(): void {
-    this.dialog.open(DialogLanguagesComponent, {
+  @HostListener('click') onclick() {
+    this.dialog.open(LanguagesDialogComponent, {
       width: '400px',
       data: {
         items: this.languages

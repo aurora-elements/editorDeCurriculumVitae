@@ -2,16 +2,16 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Inject } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IDialogData } from '../../../models/dialogData.model';
-import { TopSkillsService } from '../../../services/top-skills.service';
+import { IDialogData } from '../../../shared/dialogData.model';
+import { TopSkillsService } from '../top-skills.service';
 
 @Component({
-  selector: 'app-dialog-top-skills',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
+  selector: 'app-top-skills-dialog',
+  templateUrl: './top-skills-dialog.component.html',
+  styleUrls: ['./top-skills-dialog.component.scss'],
   providers: [TopSkillsService]
 })
-export class DialogTopSkillsComponent {
+export class TopSkillsDialogComponent {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
 

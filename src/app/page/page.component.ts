@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
-import { LocalService } from '../services/local.service';
+import { LocalService } from '../shared/local.service';
 
 @Component({
   selector: 'app-page',
