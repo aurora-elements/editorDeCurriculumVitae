@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
-import { LocalService } from '../shared/local.service';
+import { SettingsService } from '../settings/settings.service';
 
 @Component({
   selector: 'app-page',
@@ -7,33 +7,26 @@ import { LocalService } from '../shared/local.service';
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
-  name: string = 'Marcus Kramer'
-  position: string = 'Senior Web-Developer'
-  phone: string = '01516 / 6136559'
-  email: string = 'm.kramer.hannover<br>@gmail.com'
-  address: string = 'Reichhelmstr. 4<br>30519 Hannover'
-  aboutMe: string = `
-    Seit mehr als 12 Jahren arbeite ich als Web-Entwickler und habe mich auf die
-    Frontend-Entwicklung spezialisiert. Meine Schwerpunkte liegen in der UI/UX-Konzeption und der Entwicklung von modernen und
-    responsiven UIs. Diese erstelle ich auf Basis von HTML, CSS, JavaScript und biete umfangreiche Kompetenzen 
-    in bekannten Frameworks wie Vue, Typescript und Web-Componenten, für verschiedene Backend-technologien wie Java, .NET u.v.m.
-  `
 
-  languagesVisible: boolean = true
+  showTopSkills: boolean
+  showCertificacions: boolean
+  showAboutMe: boolean
+  showLanguages: boolean
 
-  @Input() showTopSkills: boolean
-  @Input() showCertificacions: boolean
-  @Input() showAboutMe: boolean
-  @Input() showLanguages: boolean
-
-  constructor(private localStore: LocalService) {
-    this.showTopSkills = this.localStore.getData('showTopSkills') as unknown as boolean
-    this.showCertificacions = this.localStore.getData('showCertificacions') as unknown as boolean
-    this.showAboutMe = this.localStore.getData('showAboutMe') as unknown as boolean
-    this.showLanguages = this.localStore.getData('showLanguages') as unknown as boolean
+  constructor(private settingsService: SettingsService) {
+    this.showTopSkills = this.settingsService.getSetting('showTopSkills')
+    this.showCertificacions = this.settingsService.getSetting('showCertificacions')
+    this.showAboutMe = this.settingsService.getSetting('showAboutMe')
+    this.showLanguages = this.settingsService.getSetting('showLanguages')
   }
 
   ngOnInit() {
-
+    this.settingsService.settingsChanged
+      .subscribe((settings) => {
+        this.showTopSkills = this.settingsService.getSetting('showTopSkills', settings)
+        this.showCertificacions = this.settingsService.getSetting('showCertificacions', settings)
+        this.showAboutMe = this.settingsService.getSetting('showAboutMe', settings)
+        this.showLanguages = this.settingsService.getSetting('showLanguages', settings)
+      })
   }
 }

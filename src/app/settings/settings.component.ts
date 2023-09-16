@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalService } from '../shared/local.service';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,26 +8,40 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
+  settings: Array<string> = []
   showTopSkills: boolean
   showCertificacions: boolean
-  showAboutMe: boolean
   showLanguages: boolean
+  showAboutMe: boolean
 
-  constructor(private localStore: LocalService) {
-    this.showTopSkills = this.localStore.getData('showTopSkills') as unknown as boolean
-    this.showCertificacions = this.localStore.getData('showCertificacions') as unknown as boolean
-    this.showAboutMe = this.localStore.getData('showAboutMe') as unknown as boolean
-    this.showLanguages = this.localStore.getData('showLanguages') as unknown as boolean
-  }
+  constructor(private settingsService: SettingsService) {
+    this.settings = this.settingsService.get()
+
+    this.showTopSkills = this.settingsService.getSetting('showTopSkills')
+    this.showCertificacions = this.settingsService.getSetting('showCertificacions')
+    this.showLanguages = this.settingsService.getSetting('showLanguages')
+    this.showAboutMe = this.settingsService.getSetting('showAboutMe')
+
+}
 
   onChange($event: MatSlideToggleChange) {
     const key = $event.source.name as string
     const value = $event.source.checked as unknown as string
 
-    if (value) {
-      this.localStore.saveData(key, value)
+   if (value) {
+      this.settings.push(key)
+
+      this.settingsService.set(this.settings)
+
     } else {
-      this.localStore.removeData(key)
+      
+     const settingsList = this.settings.filter((setting) => {
+      return setting !== key
+     })
+
+     this.settings = settingsList
+
+     this.settingsService.set(this.settings)
     }
   }
 }
