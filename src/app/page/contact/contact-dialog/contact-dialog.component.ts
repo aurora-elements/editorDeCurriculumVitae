@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IDialogData } from '../../../shared/dialogData.model';
 import { ContactService } from 'src/app/page/contact/contact.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IContactData } from '../contact-data.interface';

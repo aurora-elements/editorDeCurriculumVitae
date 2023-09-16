@@ -22,7 +22,7 @@ export class PageComponent implements OnInit {
 
   ngOnInit() {
     this.settingsService.settingsChanged
-      .subscribe((settings) => {
+      .subscribe((settings: Array<string>) => {
         this.showTopSkills = this.settingsService.getSetting('showTopSkills', settings)
         this.showCertificacions = this.settingsService.getSetting('showCertificacions', settings)
         this.showAboutMe = this.settingsService.getSetting('showAboutMe', settings)

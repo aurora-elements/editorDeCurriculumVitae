@@ -6,18 +6,13 @@
 <section class="content-right">
   <header class="header">
     <h1 
-      #el_name 
-      contenteditable="true" 
-      (blur)="name=el_name.innerText" 
       class="headline h-1"
       [innerHTML]="name">
     </h1>
-    <h2
-      #el_position
-      contenteditable="true" 
-      (blur)="position=el_position.innerText"  
-      class="headline h-2"
-      [innerHTML]="position">
+    <h2 class="headline h-2">
+      {{ job }}
     </h2>
+    <app-clickable-overlay />
   </header>
+
 </section>

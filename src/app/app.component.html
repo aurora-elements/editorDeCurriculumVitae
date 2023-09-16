@@ -18,7 +18,10 @@
     </div>
   </mat-drawer>
   <mat-drawer-content>
-    <div class="book">
+    <div 
+      class="book" 
+      [style.--main-bg-color]="mainBgColor"
+    >
       <app-page class="subpage-1"/>
         + Page hinzufügen
     </div>
