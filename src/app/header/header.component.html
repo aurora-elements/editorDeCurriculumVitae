@@ -2,12 +2,25 @@
   role="heading" 
   color="primary"
   class="mat-elevation-z6">
-
-  <span>
+  <span class="logo">currí</span>
+  <span class="title">
     Editor de currículum vitae
   </span>
 
   <span class="toolbar-spacer"></span>
+
+  <mat-icon 
+    class="screen" 
+    *ngIf="!isFullScreen" 
+    (click)="openFullscreen()">
+    fullscreen
+  </mat-icon>
+  <mat-icon 
+    class="screen" 
+    *ngIf="isFullScreen" 
+    (click)="closeFullscreen()">
+    fullscreen_exit
+  </mat-icon>
 
   <ng-content></ng-content>
 

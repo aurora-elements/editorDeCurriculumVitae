@@ -5,3 +5,12 @@
   mat-slide-toggle:last-of-type {
     padding-bottom: 0;
   }
+
+mat-form-field {
+  width: 100%;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

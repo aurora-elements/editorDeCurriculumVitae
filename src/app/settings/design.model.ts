@@ -1,4 +1,3 @@
 export interface IDesign {
-  key: string
-  value: string
+  [key: string]: string
 }

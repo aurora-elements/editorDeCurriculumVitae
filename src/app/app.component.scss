@@ -13,6 +13,7 @@ mat-drawer-content {
 
 .mat-drawer {
   padding-top: 77px;
+  max-width: 460px;
   .drawer-container {
     padding: 0 30px 30px 30px;
   }
@@ -31,6 +32,12 @@ mat-drawer-content {
   app-header {
     display: none;
   }
+  .mat-drawer {
+    display: none;
+  }
+  .mat-drawer-content {
+    margin-right: 0!important;
+  }
   .book {
     padding-top:0;
   }
@@ -44,6 +51,9 @@ mat-drawer-content {
     background: initial;
     page-break-after: always;
     padding: var(--space);
+    &::before {
+      border-radius: initial;
+    }
   }
   .mat-drawer-container {
     background-color: white;

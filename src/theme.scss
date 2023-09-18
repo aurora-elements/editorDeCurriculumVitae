@@ -1,0 +1,30 @@
+:root {
+  --body-text-size: 11px;
+  --page-width: 21cm;
+  --page-min-height: 29.7cm;
+  --space: 1.5cm;
+  --headline-2-size: 1.3rem;
+  --space-header: .25cm;
+  --main-bg-color: #2c323e;
+  --headline-font: 'Calibri';
+}
+.mat-toolbar.mat-primary {
+  --mat-toolbar-container-background-color: #2d2f31;
+  box-shadow: none !important;
+}
+
+.mat-drawer {
+  --mat-sidenav-container-background-color: #1c1d21;
+}
+
+.mat-drawer-container {
+  --mat-sidenav-content-background-color: #202124;
+}
+
+.mat-toolbar {
+  --mat-toolbar-title-text-size: 14px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  --mdc-dialog-container-color: #1c1d21;
+}

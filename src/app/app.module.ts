@@ -31,6 +31,7 @@ import { TopSkillsDialogComponent } from './page/top-skills/top-skills-dialog/to
 import { ContactDialogComponent } from './page/contact/contact-dialog/contact-dialog.component';
 import { ClickableOverlayComponent } from './clickable-overlay/clickable-overlay.component';
 import { PageHeaderDialogComponent } from './page/page-header/page-header-dialog/page-header-dialog.component';
+import { AboutMeDialogComponent } from './page/about-me/about-me-dialog/about-me-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PageHeaderDialogComponent } from './page/page-header/page-header-dialog
     TopSkillsDialogComponent,
     ContactDialogComponent,
     ClickableOverlayComponent,
-    PageHeaderDialogComponent
+    PageHeaderDialogComponent,
+    AboutMeDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,7 @@
 <header>
   <h3 class="headline headline-right h-3">Über mich</h3>
 </header>
-<p 
-  #el_aboutMe
-  contenteditable="true"
-  spellcheck="true"
-  (blur)="aboutMe=el_aboutMe.innerText"
-  [innerHTML]="aboutMe">
+<p>
+  {{ aboutMe }}
 </p>
+<app-clickable-overlay />
