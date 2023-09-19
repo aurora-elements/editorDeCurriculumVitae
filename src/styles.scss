@@ -151,44 +151,17 @@ ul {
   }
 }
 
-[contenteditable]:focus {
-  transition: all 100ms linear;
-  background-color: #424242;
-  color: white;
-  transform: scale(1.1);
-  padding: 3%;
-  border-radius: 4px;
-  border: 1px solid #424242;
-  outline: 1px solid #424242;
-  box-shadow: 
-    0px 11px 15px -7px rgba(0, 0, 0, 0.2),
-    0px 24px 38px 3px rgba(0, 0, 0, 0.14),
-    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-}
-
 .color-primary {
   color: #c2185b!important
 }
-/* .clickable {
-  cursor: pointer;
-  .headline {
-    float: left;
-  }
-  mat-icon {
-    float: right;
-    font-size: 16px;
-    opacity: 0;
-  }
-  &:hover {
-    color: #c2185b;
-      mat-icon {
-        opacity: 1;
-      }
-  }
-} */
+
 @media print {
   .clickable mat-icon {
     display: none;
+  }
+
+  .no-in-print {
+    display: none!important;
   }
 }
 html, body { height: 100%; }

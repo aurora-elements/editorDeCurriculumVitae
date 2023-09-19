@@ -9,18 +9,21 @@ mat-drawer-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
 }
 
 .mat-drawer {
   padding-top: 77px;
-  max-width: 460px;
+  max-width: 560px;
   .drawer-container {
     padding: 0 30px 30px 30px;
   }
 }
 
 .book {
-  width: 100%;
+  transform-origin: top center;
+  margin: 0 auto;
+
 }
 
 @page {
@@ -37,9 +40,14 @@ mat-drawer-content {
   }
   .mat-drawer-content {
     margin-right: 0!important;
+    overflow: hidden;
   }
   .book {
     padding-top:0;
+  }
+  .book {
+    transform-origin: initial;
+    margin: initial;
   }
   app-page {
     margin: 0;

@@ -1,0 +1,17 @@
+:host {
+  display: grid;
+  grid-template-columns: 3.2cm 1fr;
+  grid-gap: .5cm;
+  margin-bottom: .5cm;
+}
+
+aside {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 0;
+  font-size: 80%;
+}
+
+header {
+  padding:0;
+}

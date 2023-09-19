@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+}
+
+.mat-btn-double {
+  display: grid;
+  width: 36px;
+  button {
+    padding: 0;
+    min-width: 100%;
+    ::ng-deep mat-icon {
+      margin: 0;
+    }
+  }
+  button:first-of-type {
+    border-radius: 50% 50% 0 0;  
+    ::ng-deep .mat-mdc-button-persistent-ripple {
+      border-radius: 50% 50% 0 0;
+    }
+  }
+  button:last-of-type {
+    border-radius: 0 0 50% 50%;  
+    ::ng-deep .mat-mdc-button-persistent-ripple{
+      border-radius: 0 0 50% 50%;
+    }
+  }
+}

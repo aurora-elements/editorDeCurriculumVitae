@@ -1,0 +1,12 @@
+<button 
+  mat-icon-button 
+  *ngIf="!isFullScreen" 
+  (click)="openFullscreen()">
+  <mat-icon>fullscreen</mat-icon>
+</button>
+  <button 
+    mat-icon-button 
+    *ngIf="isFullScreen" 
+    (click)="closeFullscreen()">
+  <mat-icon>fullscreen_exit</mat-icon>
+</button>

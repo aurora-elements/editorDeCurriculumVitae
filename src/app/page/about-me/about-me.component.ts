@@ -37,7 +37,7 @@ export class AboutMeComponent implements OnInit {
     this.dialog.open(AboutMeDialogComponent, {
       width: '600px',
       data: {
-        aboutMe: this.aboutMeService.aboutMeData.aboutMe
+        aboutMe: this.aboutMe
       }
     })
   }

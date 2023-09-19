@@ -30,10 +30,10 @@ export class ContactComponent implements OnInit {
     this.dialog.open(ContactDialogComponent, {
       width: '400px',
       data: {
-        phone: this.contactService.contactData.phone,
-        eMail: this.contactService.contactData.eMail,
-        street: this.contactService.contactData.street,
-        zipCodeAndCity: this.contactService.contactData.zipCodeAndCity
+        phone: this.contactData.phone,
+        eMail: this.contactData.eMail,
+        street: this.contactData.street,
+        zipCodeAndCity: this.contactData.zipCodeAndCity
       }
     })
   }

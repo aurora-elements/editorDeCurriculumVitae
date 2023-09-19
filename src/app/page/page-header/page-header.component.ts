@@ -42,8 +42,8 @@ export class PageHeaderComponent implements OnInit {
     this.dialog.open(PageHeaderDialogComponent, {
       width: '400px',
       data: {
-        name: this.pageHeaderService.pageHeaderData.name,
-        job: this.pageHeaderService.pageHeaderData.job,
+        name: this.name,
+        job: this.job,
       }
     })
   }

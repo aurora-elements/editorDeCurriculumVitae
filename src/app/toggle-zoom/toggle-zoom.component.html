@@ -1,0 +1,15 @@
+<div class="mat-btn-double">
+<button
+  mat-raised-button 
+  [disabled]="disableZoomIn"
+  (click)="zoomIn()">
+  <mat-icon>zoom_in</mat-icon>
+</button>
+<button
+  mat-raised-button
+  [disabled]="disableZoomOut"
+  (click)="zoomOut()">
+  <mat-icon>zoom_out</mat-icon>
+</button>
+</div>
+

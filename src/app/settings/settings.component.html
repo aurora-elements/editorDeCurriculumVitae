@@ -1,57 +1,62 @@
 <form [formGroup]="settingsForm">
-  <h3 class="h-3">
-    Linke Spalte
-  </h3>
-  <h2 class="h-2">Anzeige der Bereiche</h2>
-  <div class="settings-grid">
-    <mat-slide-toggle
-      [checked]="showTopSkills"
-      (change)="onChange($event)"
-      name="showTopSkills">
-      "Top-Skills"
-    </mat-slide-toggle>
+  <mat-tab-group
+    animationDuration="0ms"
+    mat-stretch-tabs>
+    <mat-tab label="Allgemein">
+      <h2 class="h-2">Überschriften</h2>
+      <mat-form-field>
+        <mat-label>Schriftart</mat-label>
+        <input matInput formControlName="headlineFont">
+        <mat-icon matSuffix>text_fields</mat-icon>
+      </mat-form-field>
+    </mat-tab>
 
-    <mat-slide-toggle
-      [checked]="showCertificacions"
-      (change)="onChange($event)"
-      name="showCertificacions">
-      "Zertifizierungen"
-    </mat-slide-toggle>
+    <mat-tab label="Linke Spalte">
+      <h2 class="h-2">Anzeige der Bereiche</h2>
+      <div class="settings-grid">
+        <mat-slide-toggle
+          [checked]="showTopSkills"
+          (change)="onChange($event)"
+          name="showTopSkills">
+          "Top-Skills"
+        </mat-slide-toggle>
 
-    <mat-slide-toggle
-      [checked]="showLanguages"
-      (change)="onChange($event)"
-      name="showLanguages">
-      "Sprachen"
-    </mat-slide-toggle>
-  </div>
-  <h2 class="h-2">Hintergrund</h2>
-  <mat-form-field>
-    <mat-label>Farbe</mat-label>
-    <input matInput formControlName="mainBgColor">
-    <mat-icon matSuffix>palette</mat-icon>
-  </mat-form-field>
+        <mat-slide-toggle
+          [checked]="showCertificacions"
+          (change)="onChange($event)"
+          name="showCertificacions">
+          "Zertifizierungen"
+        </mat-slide-toggle>
 
-  <h3 class="h-3 space-content-block--top">Rechte Spalte</h3>
+        <mat-slide-toggle
+          [checked]="showLanguages"
+          (change)="onChange($event)"
+          name="showLanguages">
+          "Sprachen"
+        </mat-slide-toggle>
+      </div>
+      <h2 class="h-2 space-content-block--top ">Hintergrund</h2>
+      <mat-form-field>
+        <mat-label>Farbe</mat-label>
+        <input matInput formControlName="mainBgColor">
+        <mat-icon matSuffix>palette</mat-icon>
+      </mat-form-field>
+    </mat-tab>
 
-  <h2 class="h-2">Anzeige der Bereiche</h2>
-  <mat-slide-toggle
-    [checked]="showAboutMe"
-    (change)="onChange($event)"
-    name="showAboutMe">
-    "Über mich"
-  </mat-slide-toggle>
-
-  <h2 class="h-2">Überschriften</h2>
-  <mat-form-field>
-    <mat-label>Farbe</mat-label>
-    <input matInput formControlName="headlineColor">
-    <mat-icon matSuffix>palette</mat-icon>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Schriftart</mat-label>
-    <input matInput formControlName="headlineFont">
-    <mat-icon matSuffix>text_fields</mat-icon>
-  </mat-form-field>
+    <mat-tab label="Rechte Spalte">
+      <h2 class="h-2">Anzeige der Bereiche</h2>
+      <mat-slide-toggle
+        [checked]="showAboutMe"
+        (change)="onChange($event)"
+        name="showAboutMe">
+        "Über mich"
+      </mat-slide-toggle>
+      <h2 class="h-2 space-content-block--top ">Überschriften</h2>
+      <mat-form-field>
+        <mat-label>Farbe</mat-label>
+        <input matInput formControlName="headlineColor">
+        <mat-icon matSuffix>palette</mat-icon>
+      </mat-form-field>
+    </mat-tab>
+  </mat-tab-group>
 </form>

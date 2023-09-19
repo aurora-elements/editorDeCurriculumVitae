@@ -14,3 +14,7 @@ mat-form-field {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+form {
+  min-width: 500px;
+}

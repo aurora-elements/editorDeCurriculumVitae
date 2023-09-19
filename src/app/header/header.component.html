@@ -9,18 +9,7 @@
 
   <span class="toolbar-spacer"></span>
 
-  <mat-icon 
-    class="screen" 
-    *ngIf="!isFullScreen" 
-    (click)="openFullscreen()">
-    fullscreen
-  </mat-icon>
-  <mat-icon 
-    class="screen" 
-    *ngIf="isFullScreen" 
-    (click)="closeFullscreen()">
-    fullscreen_exit
-  </mat-icon>
+  <app-toggle-fullscreen />
 
   <ng-content></ng-content>
 

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTabsModule } from '@angular/material/tabs';
 import { NgFor } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,10 @@ import { ContactDialogComponent } from './page/contact/contact-dialog/contact-di
 import { ClickableOverlayComponent } from './clickable-overlay/clickable-overlay.component';
 import { PageHeaderDialogComponent } from './page/page-header/page-header-dialog/page-header-dialog.component';
 import { AboutMeDialogComponent } from './page/about-me/about-me-dialog/about-me-dialog.component';
+import { ExperienceItemComponent } from './experience/experience-item/experience-item.component';
+import { ExperienceListComponent } from './experience/experience-list/experience-list.component';
+import { ToggleFullscreenComponent } from './header/toggle-fullscreen/toggle-fullscreen.component';
+import { ToggleZoomComponent } from './toggle-zoom/toggle-zoom.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,11 @@ import { AboutMeDialogComponent } from './page/about-me/about-me-dialog/about-me
     ContactDialogComponent,
     ClickableOverlayComponent,
     PageHeaderDialogComponent,
-    AboutMeDialogComponent
+    AboutMeDialogComponent,
+    ExperienceItemComponent,
+    ExperienceListComponent,
+    ToggleFullscreenComponent,
+    ToggleZoomComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +77,7 @@ import { AboutMeDialogComponent } from './page/about-me/about-me-dialog/about-me
     FormsModule,
     ReactiveFormsModule,
     MatChipsModule,
+    MatTabsModule,
     NgIf,
     NgFor
   ],
