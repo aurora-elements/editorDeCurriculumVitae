@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-toggle-zoom',
   templateUrl: './toggle-zoom.component.html',
   styleUrls: ['./toggle-zoom.component.scss']
 })
-export class ToggleZoomComponent {
-  elementToZoom = '.book'
+export class ToggleZoomComponent implements OnInit {
+  elementToZoom: HTMLElement;
+  bookTransformValue: string = ''
+
   disableZoomIn = false
   disableZoomOut = true
   disableZoomReset = true
@@ -17,49 +19,59 @@ export class ToggleZoomComponent {
     4: 'scale(1.4)',
     6: 'scale(1.6)'
   }
+
+  constructor() {
+    this.elementToZoom = document.querySelector('.book')!
+  }
+
+  ngOnInit(): void {
+    this.elementToZoom = document.querySelector('.book')!
+    this.bookTransformValue = this.elementToZoom.style!.transform
+  }
   
   zoomIn() {
-    const bookTransformValue: string = (document.querySelector(this.elementToZoom) as HTMLElement).style.transform
-
-    switch (bookTransformValue) {
+    switch (this.bookTransformValue) {
       case this.scaleLevels[2]:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[4]
+        this.elementToZoom.style.transform = this.scaleLevels[4]
         break;
       case this.scaleLevels[4]:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[6]
+        this.elementToZoom.style.transform = this.scaleLevels[6]
         this.disableZoomIn = true
         break;
       default:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[2]
+        this.elementToZoom.style.transform = this.scaleLevels[2]
         this.disableZoomOut = false
         this.disableZoomReset = false
     }
+
+    this.bookTransformValue = this.elementToZoom.style!.transform
   }
 
   zoomOut() {
-    const bookTransformValue: string = (document.querySelector(this.elementToZoom) as HTMLElement).style.transform
-
-    switch (bookTransformValue) {
+    switch (this.bookTransformValue) {
       case this.scaleLevels[2]:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[0]
+        this.elementToZoom.style.transform = this.scaleLevels[0]
         this.disableZoomIn = false
         this.disableZoomOut = true
         this.disableZoomReset = true
         break;
       case this.scaleLevels[4]:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[2]
+        this.elementToZoom.style.transform = this.scaleLevels[2]
         this.disableZoomIn = false
         this.disableZoomOut = false
         break;
       case this.scaleLevels[6]:
-        (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[4]
+        this.elementToZoom.style.transform = this.scaleLevels[4]
         this.disableZoomIn = true
         break;
     }
+
+    this.bookTransformValue = this.elementToZoom.style!.transform
   }
 
   zoomReset() {
-    (document.querySelector(this.elementToZoom) as HTMLElement).style.transform = this.scaleLevels[0]
+    this.elementToZoom.style.transform = this.scaleLevels[0]
+    this.bookTransformValue = this.elementToZoom.style!.transform
     this.disableZoomIn = false
     this.disableZoomOut = true
     this.disableZoomReset = true
