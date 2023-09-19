@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class ToggleZoomComponent {
   disableZoomIn = false
   disableZoomOut = true
+  disableZoomReset = true
   zoomIn() {
     const bookTransformValue: string = (document.querySelector('.book') as HTMLElement).style.transform
 
@@ -22,6 +23,7 @@ export class ToggleZoomComponent {
       default:
         (document.querySelector('.book') as HTMLElement).style.transform = 'scale(1.2)'
         this.disableZoomOut = false
+        this.disableZoomReset = false
     }
   }
 
@@ -33,6 +35,7 @@ export class ToggleZoomComponent {
         (document.querySelector('.book') as HTMLElement).style.transform = ''
         this.disableZoomIn = false
         this.disableZoomOut = true
+        this.disableZoomReset = true
         break;
       case 'scale(1.4)':
         (document.querySelector('.book') as HTMLElement).style.transform = 'scale(1.2)'
@@ -44,5 +47,12 @@ export class ToggleZoomComponent {
         this.disableZoomIn = true
         break;
     }
+  }
+
+  zoomReset() {
+    (document.querySelector('.book') as HTMLElement).style.transform = ''
+    this.disableZoomIn = false
+    this.disableZoomOut = true
+    this.disableZoomReset = true
   }
 }

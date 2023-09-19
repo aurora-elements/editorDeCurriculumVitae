@@ -6,6 +6,12 @@
   <mat-icon>zoom_in</mat-icon>
 </button>
 <button
+  mat-raised-button 
+  [disabled]="disableZoomReset"
+  (click)="zoomReset()">
+  <mat-icon>close</mat-icon>
+</button>
+<button
   mat-raised-button
   [disabled]="disableZoomOut"
   (click)="zoomOut()">
