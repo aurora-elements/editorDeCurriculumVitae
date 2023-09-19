@@ -17,6 +17,7 @@ export class ToggleZoomComponent {
     4: 'scale(1.4)',
     6: 'scale(1.6)'
   }
+  
   zoomIn() {
     const bookTransformValue: string = (document.querySelector(this.elementToZoom) as HTMLElement).style.transform
 
