@@ -5,18 +5,6 @@
   [formGroup]="experienceForm" 
   (ngSubmit)="onSubmit()">
   <mat-dialog-content>
-    <mat-form-field>
-      <mat-label>Position in Liste</mat-label>
-      <input 
-        matInput 
-        required
-        formControlName="position" 
-        min="1">
-      <mat-icon matSuffix>numbers</mat-icon>
-      <mat-error *ngIf="f['position'].touched && f['position'].invalid">
-        Du musst hier eine Zahl eingeben
-      </mat-error>
-    </mat-form-field>
     <mat-form-field required>
       <mat-label>Zeitraum</mat-label>
       <input matInput formControlName="period">

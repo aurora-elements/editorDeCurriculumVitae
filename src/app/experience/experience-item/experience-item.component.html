@@ -7,5 +7,6 @@
   <p>{{ item.desc }}</p>
 </section>
 <app-clickable-overlay (editEvent)="edit()">
-  <mat-icon (click)="delete()">delete_forever</mat-icon>
+  <mat-icon (click)="add()" class="pre-edit">add</mat-icon>
+  <mat-icon (click)="delete()" class="after-edit">delete_forever</mat-icon>
 </app-clickable-overlay>

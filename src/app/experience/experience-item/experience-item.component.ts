@@ -25,13 +25,25 @@ export class ExperienceItemComponent {
   ) {
   }
 
+  add() {
+    const dialogRef = this.dialog.open(ExperienceDialogComponent, {
+      width: '600px'
+    })
+
+    dialogRef.componentInstance.submitAddEvent.subscribe(result => {
+      if (result) {
+        this.experienceService.add(result)
+      }
+    })
+  }
+
   edit() {
    const dialogRef = this.dialog.open(ExperienceDialogComponent, {
       width: '600px',
       data: this.item
     })
 
-    dialogRef.componentInstance.submitEvent.subscribe(result => {
+    dialogRef.componentInstance.submitEditEvent.subscribe(result => {
       if(result) {
        this.experienceService.edit(result)
       }

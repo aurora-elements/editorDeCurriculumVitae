@@ -1,6 +1,7 @@
 <div class="clickable-overlay">
   <div>
-  <mat-icon (click)="edit()">edit</mat-icon>
-  <ng-content></ng-content>
+    <ng-content select=".pre-edit"></ng-content>
+    <mat-icon (click)="edit()">edit</mat-icon>
+    <ng-content select=".after-edit"></ng-content>
   </div>
 </div>
