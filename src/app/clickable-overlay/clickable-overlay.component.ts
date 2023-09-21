@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-clickable-overlay',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./clickable-overlay.component.scss']
 })
 export class ClickableOverlayComponent {
+  @Output()
+  editEvent = new EventEmitter<any>();
 
+  edit() {
+    this.editEvent.emit()
+  }
 }

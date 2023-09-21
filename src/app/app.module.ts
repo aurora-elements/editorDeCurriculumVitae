@@ -37,6 +37,8 @@ import { ExperienceItemComponent } from './experience/experience-item/experience
 import { ExperienceListComponent } from './experience/experience-list/experience-list.component';
 import { ToggleFullscreenComponent } from './header/toggle-fullscreen/toggle-fullscreen.component';
 import { ToggleZoomComponent } from './toggle-zoom/toggle-zoom.component';
+import { ExperienceDialogComponent } from './experience/experience-item/experience-dialog/experience-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { ToggleZoomComponent } from './toggle-zoom/toggle-zoom.component';
     ExperienceItemComponent,
     ExperienceListComponent,
     ToggleFullscreenComponent,
-    ToggleZoomComponent
+    ToggleZoomComponent,
+    ExperienceDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

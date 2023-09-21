@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>
+  Berufserfahrung bearbeiten
+</h2>
+<form 
+  [formGroup]="experienceForm" 
+  (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Position in Liste</mat-label>
+      <input 
+        matInput 
+        required
+        formControlName="position" 
+        min="1">
+      <mat-icon matSuffix>numbers</mat-icon>
+      <mat-error *ngIf="f['position'].touched && f['position'].invalid">
+        Du musst hier eine Zahl eingeben
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field required>
+      <mat-label>Zeitraum</mat-label>
+      <input matInput formControlName="period">
+      <mat-icon matSuffix>timer</mat-icon>
+      <mat-error *ngIf="f['period'].touched && f['period'].invalid">
+        Bitte trag den Zeitraum ein (tt.mm.yyyy - tt.mm.yyyy)
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field required>
+      <mat-label>Firma</mat-label>
+      <input matInput formControlName="company">
+      <mat-icon matSuffix>apartment</mat-icon>
+      <mat-error *ngIf="f['company'].touched && f['company'].invalid">
+        Bitte trag den Firmenname ein
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field required>
+      <mat-label>Beschäftigt als</mat-label>
+      <input matInput formControlName="title">
+      <mat-icon matSuffix>work</mat-icon>
+      <mat-error *ngIf="f['title'].touched && f['title'].invalid">
+        Bitte trag die Bezeichnung deines Jobs ein
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tätigkeiten</mat-label>
+      <textarea matInput formControlName="desc"></textarea>
+      <mat-icon matSuffix>description</mat-icon>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button 
+      mat-flat-button
+      mat-dialog-close>
+      Abbrechen
+    </button>
+    <button 
+      mat-flat-button 
+      [mat-dialog-close]="true"
+      color="primary"
+      type="submit">
+      Speichern
+    </button>
+  </mat-dialog-actions>
+</form>

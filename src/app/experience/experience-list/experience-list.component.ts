@@ -14,5 +14,13 @@ export class ExperienceListComponent implements OnInit {
 
   ngOnInit(): void {
     this.experiences = this.experiencesService.get()
+
+    this.experiencesService.update.subscribe(() => {
+      this.experiences = this.experiencesService.get()  
+    })
+  }
+
+  add() {
+    
   }
 }

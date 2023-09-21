@@ -6,3 +6,6 @@
   <header><strong>{{ item.title }}</strong></header>
   <p>{{ item.desc }}</p>
 </section>
+<app-clickable-overlay (editEvent)="edit()">
+  <mat-icon (click)="delete()">delete_forever</mat-icon>
+</app-clickable-overlay>
