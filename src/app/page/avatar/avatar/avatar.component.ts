@@ -43,24 +43,12 @@ export class AvatarComponent implements OnInit {
 
     this.service.updateLocal.subscribe(() => {
       this.item = this.service.getLocale()
-      console.log('getLocal -> item: ', this.item)
     })
 
     this.styleObject()
   }
 
   edit() {
-    console.log('edit dialog open')
-    /*const data = {
-      url: './assets/img/avatar.jpg',
-      positionX: 'center',
-      positionY: 'center',
-      size: 'cover',
-      isColor: false,
-      rounded: true,
-      aspectRatio: '1/1',
-      backgroundColor: 'white'
-    }*/
     this.dialog.open(AvatarDialogComponent, {
       width: '800px',
       disableClose: true,

@@ -105,7 +105,6 @@ export class AvatarDialogComponent implements OnInit, OnDestroy {
     this.isAvatarSaved = false;
     this.input.nativeElement.value = ''
     this.form?.patchValue(this.dialog)
-    console.log('reset dialog: ', this.dialog)
   }
 
   onSubmit() {
@@ -120,7 +119,6 @@ export class AvatarDialogComponent implements OnInit, OnDestroy {
       rounded: this.form.value.rounded as boolean,
     }
 
-    console.log('formData onSubmit: ', this.formData)
     this.service.set(this.formData)
   }
 
@@ -136,7 +134,6 @@ export class AvatarDialogComponent implements OnInit, OnDestroy {
       rounded: this.form.value.rounded as boolean,
     }
 
-    console.log('formData onLocaleSubmit: ', this.formData)
     this.service.setLocale(this.formData)
     this.isAvatarSaved = true
   }
