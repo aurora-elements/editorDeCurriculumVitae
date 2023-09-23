@@ -1,0 +1,11 @@
+:host {
+  position: relative;
+  display: block;
+}
+.avatar-wrapper {
+  width: 100%;
+  background-repeat: no-repeat;
+}
+[editable="false"] .avatar-wrapper {
+  transition: all 300ms ease-in-out;
+}

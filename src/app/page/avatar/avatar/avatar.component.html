@@ -1,0 +1,7 @@
+<div 
+  class="avatar-wrapper" 
+  [ngStyle]="styleObject()">
+</div>
+<app-clickable-overlay 
+  *ngIf="editable" 
+  (click)="edit()" />

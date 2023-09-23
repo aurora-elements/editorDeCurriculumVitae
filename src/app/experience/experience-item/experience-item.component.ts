@@ -27,7 +27,8 @@ export class ExperienceItemComponent {
 
   add() {
     const dialogRef = this.dialog.open(ExperienceDialogComponent, {
-      width: '600px'
+      width: '600px',
+      disableClose: true
     })
 
     dialogRef.componentInstance.submitAddEvent.subscribe(result => {
@@ -40,6 +41,7 @@ export class ExperienceItemComponent {
   edit() {
    const dialogRef = this.dialog.open(ExperienceDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: this.item
     })
 

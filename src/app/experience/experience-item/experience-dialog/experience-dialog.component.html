@@ -1,5 +1,6 @@
 <h2 mat-dialog-title>
-  Berufserfahrung bearbeiten
+  <span *ngIf="dialog">Berufserfahrung bearbeiten </span>
+  <span *ngIf="!dialog">Berufserfahrung hinzufügen </span>
 </h2>
 <form 
   [formGroup]="experienceForm" 

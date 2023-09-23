@@ -1,0 +1,131 @@
+<h2 mat-dialog-title class="center-text">
+  Profilfoto
+</h2>
+<form 
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="center-text">
+    <div class="grid">
+      <div>
+        <p class="center-text">Bitte lade ein quadratisches Foto hoch!</p>
+
+        <app-avatar
+          [editable]="false" 
+          [item]="dialog" />
+<!--         <ng-container *ngIf="isAvatarSaved; else elseTemplate">
+             <img [src]="avatarBase64"/>
+            
+        </ng-container>
+        <ng-template #elseTemplate>
+            <img [src]="placeholder">
+        </ng-template> -->
+
+        <input 
+          #avatarInput
+          type="file" 
+          [disabled]="isAvatarSaved"
+          (change)="fileChangeEvent($event)" 
+          class="avatarInput">
+      </div>
+      <div>
+        <div class="sub-grid">
+          <mat-slide-toggle
+            [matTooltip]="isColorTip" 
+            matTooltipPosition="left"
+            formControlName="isColor"
+            (change)="onSubmitLocale()">
+            Farbig darstellen
+          </mat-slide-toggle>
+          <mat-slide-toggle
+            [matTooltip]="roundedTip" 
+            matTooltipPosition="left"
+            formControlName="rounded"
+            (change)="onSubmitLocale()">
+            Rund darstellen
+          </mat-slide-toggle>
+        </div>
+        <mat-form-field 
+          required
+          [matTooltip]="backgroundColorTip" 
+          matTooltipPosition="left">
+          <mat-label>Hintergrundfarbe (background-color)</mat-label>
+          <input 
+            matInput 
+            formControlName="backgroundColor"
+            (change)="onSubmitLocale()">
+          <mat-icon matSuffix>palette</mat-icon>
+        </mat-form-field>
+        <mat-form-field 
+          required 
+          [matTooltip]="backgroundSizeTip" 
+          matTooltipPosition="left">
+          <mat-label>Skalierung (background-size)</mat-label>
+          <input 
+            matInput 
+            formControlName="size"
+            (change)="onSubmitLocale()">
+          <mat-icon matSuffix>zoom_out_map</mat-icon>
+        </mat-form-field>
+        <mat-form-field 
+          required
+          [matTooltip]="backgroundPositionX" 
+          matTooltipPosition="left">
+          <mat-label>Horizontale Position (background-position X-Achse)</mat-label>
+          <input 
+            matInput 
+            formControlName="positionX"
+            (change)="onSubmitLocale()">
+          <mat-icon matSuffix>swap_horiz</mat-icon>
+        </mat-form-field>
+        <mat-form-field 
+          required
+          [matTooltip]="backgroundPositionY" 
+          matTooltipPosition="left">
+          <mat-label>Vertikale Position (background-position Y-Achse)</mat-label>
+          <input 
+            matInput 
+            formControlName="positionY"
+            (change)="onSubmitLocale()">
+          <mat-icon matSuffix>swap_vert</mat-icon>
+        </mat-form-field>
+        <mat-form-field 
+          required
+          [matTooltip]="aspectRatioTip" 
+          matTooltipPosition="left">
+          <mat-label>Seitenverhältnis (aspect-ratio)</mat-label>
+          <input 
+            matInput 
+            formControlName="aspectRatio"
+            (change)="onSubmitLocale()">
+          <mat-icon matSuffix>image_aspect_ratio</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="center">
+    <button 
+      mat-flat-button
+      mat-dialog-close>
+      Abbrechen
+    </button>
+
+    <button 
+      *ngIf="isAvatarSaved"
+      mat-flat-button
+      color="warn"
+      (click)="reset()">
+      Zurücksetzen
+    </button>
+
+    <button 
+      mat-flat-button 
+      [mat-dialog-close]="true"
+      color="primary"
+      [disabled]="!isAvatarSaved"
+      type="submit">
+      Speichern
+    </button>
+  </mat-dialog-actions>
+
+</form>

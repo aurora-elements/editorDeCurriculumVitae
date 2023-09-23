@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgFor } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { PageComponent } from './page/page.component';
@@ -39,6 +40,8 @@ import { ToggleFullscreenComponent } from './header/toggle-fullscreen/toggle-ful
 import { ToggleZoomComponent } from './toggle-zoom/toggle-zoom.component';
 import { ExperienceDialogComponent } from './experience/experience-item/experience-dialog/experience-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { AvatarDialogComponent } from './page/avatar/avatar-dialog/avatar-dialog.component';
+import { AvatarComponent } from './page/avatar/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ToggleFullscreenComponent,
     ToggleZoomComponent,
     ExperienceDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    AvatarDialogComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ReactiveFormsModule,
     MatChipsModule,
     MatTabsModule,
+    MatTooltipModule,
     NgIf,
     NgFor
   ],
