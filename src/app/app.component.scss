@@ -32,6 +32,11 @@ mat-drawer-content {
 }
 
 @media print {
+  .example-container {
+    width: initial;
+    height: initial;
+    padding-top: 0;
+  }
   app-header {
     display: none;
   }
@@ -41,6 +46,9 @@ mat-drawer-content {
   .mat-drawer-content {
     margin-right: 0!important;
     overflow: hidden;
+    padding: 0;
+    display: initial;
+    position: initial;
   }
   .book {
     padding-top:0;
