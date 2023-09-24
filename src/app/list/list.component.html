@@ -1,0 +1,9 @@
+<header>
+  <h3 class="headline headline-right h-3">
+    {{ headline }}
+  </h3>
+</header>
+<app-list-item 
+  *ngFor="let item of items; index as i"
+  [item]="item"
+  [index]="i" />

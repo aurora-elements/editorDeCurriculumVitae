@@ -1,0 +1,12 @@
+<aside>
+  <span>Zeitraum</span>
+  <span>Firma</span>
+</aside>
+<section>
+  <header><strong>{{ item.title }}</strong></header>
+  <p>Beschreibung</p>
+</section>
+<app-clickable-overlay (editEvent)="edit()">
+  <mat-icon (click)="add()" class="pre-edit">add</mat-icon>
+  <mat-icon (click)="delete()" class="after-edit">delete_forever</mat-icon>
+</app-clickable-overlay>

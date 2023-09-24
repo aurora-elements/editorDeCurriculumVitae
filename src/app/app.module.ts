@@ -42,6 +42,10 @@ import { ExperienceDialogComponent } from './experience/experience-item/experien
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { AvatarDialogComponent } from './page/avatar/avatar-dialog/avatar-dialog.component';
 import { AvatarComponent } from './page/avatar/avatar/avatar.component';
+import { ListComponent } from './list/list.component';
+import { ListItemComponent } from './list/list-item/list-item.component';
+import { ListItemDialogComponent } from './list/list-item/item-dialog/list-item-dialog.component';
+import { ListDialogComponent } from './list/list-dialog/list-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +73,11 @@ import { AvatarComponent } from './page/avatar/avatar/avatar.component';
     ExperienceDialogComponent,
     ConfirmDialogComponent,
     AvatarDialogComponent,
-    AvatarComponent
+    AvatarComponent,
+    ListComponent,
+    ListItemComponent,
+    ListItemDialogComponent,
+    ListDialogComponent
   ],
   imports: [
     BrowserModule,

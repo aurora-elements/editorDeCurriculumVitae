@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
 import { SettingsService } from '../settings/settings.service';
+import { ListService } from '../list/list.service';
 
 @Component({
   selector: 'app-page',
@@ -13,7 +14,10 @@ export class PageComponent implements OnInit {
   showAboutMe: boolean
   showLanguages: boolean
 
-  constructor(private settingsService: SettingsService) {
+  constructor(
+    private settingsService: SettingsService,
+    private listService: ListService
+  ) {
     this.showTopSkills = this.settingsService.getSetting('showTopSkills')
     this.showCertificacions = this.settingsService.getSetting('showCertificacions')
     this.showAboutMe = this.settingsService.getSetting('showAboutMe')
@@ -29,4 +33,6 @@ export class PageComponent implements OnInit {
         this.showLanguages = this.settingsService.getSetting('showLanguages', settings)
       })
   }
+
+  itemLists = this.listService.get()
 }
