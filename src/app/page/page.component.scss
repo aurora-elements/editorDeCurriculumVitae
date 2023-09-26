@@ -42,6 +42,13 @@
   }
 }
 
+// Hinzufügen Button
+.add-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 @media print {
  /* :host {
     padding: 0;

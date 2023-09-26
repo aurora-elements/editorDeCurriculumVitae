@@ -12,6 +12,9 @@ export class ListItemComponent {
   @Input()
   item!: {id: number, title:string} 
 
+  @Input()
+  storeId!: string
+
   edit() {}
 
   add() {}

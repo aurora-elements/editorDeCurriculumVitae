@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,10 @@ import { Component, HostListener, Inject } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  constructor(
+  ) {}
  windowPrint() {
    return window.print()
  }
+
 }

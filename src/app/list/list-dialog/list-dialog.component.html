@@ -1,1 +1,33 @@
-<p>list-dialog works!</p>
+<h2 mat-dialog-title>
+  Neue List erstellen
+</h2>
+<form 
+  [formGroup]="form" 
+  (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+
+    <mat-form-field required>
+      <mat-label>Titel der List (wird als Überschrift angezeigt)</mat-label>
+      <input matInput formControlName="title">
+      <mat-icon matSuffix>title</mat-icon>
+      <mat-error *ngIf="f['title'].touched && f['title'].invalid">
+        Bitte trag einen Titel für deine Liste ein
+      </mat-error>
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button 
+      mat-flat-button
+      mat-dialog-close>
+      Abbrechen
+    </button>
+    <button 
+      mat-flat-button 
+      [mat-dialog-close]="true"
+      color="primary"
+      type="submit">
+      Liste erstellen
+    </button>
+  </mat-dialog-actions>
+</form>
