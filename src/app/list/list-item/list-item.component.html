@@ -1,12 +1,22 @@
 <aside>
-  <span>Zeitraum</span>
-  <span>Firma</span>
+  <span>
+    {{ item.titleLeft }}
+  </span>
+  <span>
+    {{ item.subtitleLeft}}
+  </span>
 </aside>
 <section>
-  <header><strong>{{ item.title }} / Store-ID: {{ storeId }}</strong></header>
-  <p>Beschreibung</p>
+  <header>
+    <strong>
+      {{ item.title }}
+    </strong>
+  </header>
+  <p>
+    {{ item.desc}}
+  </p>
 </section>
-<app-clickable-overlay (editEvent)="edit()">
+<app-clickable-overlay class="sub-item" (editEvent)="edit()">
   <mat-icon (click)="add()" class="pre-edit">add</mat-icon>
   <mat-icon (click)="delete()" class="after-edit">delete_forever</mat-icon>
 </app-clickable-overlay>

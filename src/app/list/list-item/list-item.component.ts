@@ -10,7 +10,13 @@ export class ListItemComponent {
   index!: number
 
   @Input()
-  item!: {id: number, title:string} 
+  item!: {
+    id: number, 
+    title:string,
+    titleLeft: string, 
+    subtitleLeft: string,
+    desc: string
+  } 
 
   @Input()
   storeId!: string

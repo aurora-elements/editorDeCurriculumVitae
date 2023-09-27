@@ -5,16 +5,25 @@
   [formGroup]="form" 
   (ngSubmit)="onSubmit()">
   <mat-dialog-content>
+    <mat-tab-group
+      animationDuration="0ms"
+      mat-stretch-tabs>
 
-    <mat-form-field required>
-      <mat-label>Titel der List (wird als Überschrift angezeigt)</mat-label>
-      <input matInput formControlName="title">
-      <mat-icon matSuffix>title</mat-icon>
-      <mat-error *ngIf="f['title'].touched && f['title'].invalid">
-        Bitte trag einen Titel für deine Liste ein
-      </mat-error>
-    </mat-form-field>
+      <mat-tab label="Allgemein">
+        <mat-form-field required>
+          <mat-label>Titel der List (wird als Überschrift angezeigt)</mat-label>
+          <input matInput formControlName="title">
+          <mat-icon matSuffix>title</mat-icon>
+          <mat-error *ngIf="f['title'].touched && f['title'].invalid">
+            Bitte trag einen Titel für deine Liste ein
+          </mat-error>
+        </mat-form-field>
+      </mat-tab>
 
+      <mat-tab label="Einstellungen">
+        
+      </mat-tab>
+    </mat-tab-group>
   </mat-dialog-content>
   <mat-dialog-actions align="center">
     <button 

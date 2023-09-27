@@ -2,6 +2,10 @@
   <h3 class="headline headline-right h-3">
     {{ headline }}
   </h3>
+  <app-clickable-overlay class="sub-item" (editEvent)="edit()">
+    <mat-icon (click)="createNewList()" class="pre-edit">add</mat-icon>
+    <mat-icon (click)="delete()" class="after-edit">delete_forever</mat-icon>
+  </app-clickable-overlay>
 </header>
 <app-list-item 
   *ngFor="let item of items; index as i"

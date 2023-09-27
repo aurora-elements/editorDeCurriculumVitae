@@ -39,7 +39,6 @@ export class PageComponent implements OnInit {
       })
 
     this.itemLists = this.listService.get()
-    console.log('lists: ', this.itemLists)
 
     this.listService.update.subscribe(() => {
       this.itemLists = this.listService.get()
@@ -49,13 +48,12 @@ export class PageComponent implements OnInit {
 
   createNewList() {
     const dialogRef = this.dialog.open(ListDialogComponent, {
-      width: '400px',
+      width: '500px',
       disableClose: true
     })
 
     dialogRef.componentInstance.submitAddEvent.subscribe(list => {
       if (list) {
-        console.log('list: ', list)
         this.listService.create(list.id, list.title)
       }
     })

@@ -19,7 +19,11 @@ export class ItemService {
     const items = [
       {
         id: UID,
-        title: `item-${UID}`
+        title: `Beispieleintrag`,
+        titleLeft: '01.01.2023 - 31.08.2023',
+        subtitleLeft: 'Beispielfirma',
+        desc: 'Beschreibung der Tätigkeiten'
+
       }
     ]
     const itemsArray = JSON.stringify(items)
