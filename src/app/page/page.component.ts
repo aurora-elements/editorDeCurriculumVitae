@@ -3,6 +3,7 @@ import { SettingsService } from '../settings/settings.service';
 import { ListService } from '../list/list.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ListDialogComponent } from '../list/list-dialog/list-dialog.component';
+import { IList } from '../list/list.model';
 
 @Component({
   selector: 'app-page',
@@ -16,7 +17,7 @@ export class PageComponent implements OnInit {
   showAboutMe: boolean
   showLanguages: boolean
 
-  itemLists: {id: string, title: string}[] = []
+  itemLists: IList[] = []
 
   constructor(
     private settingsService: SettingsService,
@@ -54,7 +55,7 @@ export class PageComponent implements OnInit {
 
     dialogRef.componentInstance.submitAddEvent.subscribe(list => {
       if (list) {
-        this.listService.create(list.id, list.title)
+        this.listService.create(list.id, list)
       }
     })
   }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalService } from 'src/app/shared/local.service';
+import { IListItem } from '../item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,11 @@ export class ItemService {
   items = []
 
   create(storeId: string) {
-    console.log('create items')
     const generateID = () => {
       return Math.random().toString(36).slice(2)
     }
     const UID = generateID() 
-    const items = [
+    const items: IListItem[] = [
       {
         id: UID,
         title: `Beispieleintrag`,
@@ -32,7 +32,6 @@ export class ItemService {
   }
 
   get(storeId: string) {
-    console.log('store id: ', storeId)
     const store = this.localService.getData(storeId)!
 
     if(store !== null) {

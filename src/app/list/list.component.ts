@@ -4,6 +4,9 @@ import { LocalService } from '../shared/local.service';
 import { ListService } from './list.service';
 import { ListDialogComponent } from './list-dialog/list-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { IListItem } from './item.model';
+import { IList } from './list.model';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -16,13 +19,7 @@ export class ListComponent implements OnInit {
   
   headline: string = `List-${Math.random().toString(36).slice(2)}`
 
-  items!: {
-    id: number,
-    title: string,
-    titleLeft: string,
-    subtitleLeft: string,
-    desc: string
-  }[];
+  items!: IListItem[];
 
   constructor(
     private itemService: ItemService,
@@ -46,21 +43,18 @@ export class ListComponent implements OnInit {
     }
   }
 
-  createNewList() {
-    const dialogRef = this.dialog.open(ListDialogComponent, {
-      width: '500px',
-      disableClose: true
+  delete() {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      disableClose: true,
+      data: 'Willst du diese Liste, mit allen Einträgen, wirklich löschen?'
     })
 
-    dialogRef.componentInstance.submitAddEvent.subscribe((list: { id: string; title: string; }) => {
-      if (list) {
-        console.log('list: ', list)
-        this.listService.create(list.id, list.title)
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.listService.delete(this.storeId)
       }
     })
   }
-
-  delete() {}
 
   edit() {}
 }

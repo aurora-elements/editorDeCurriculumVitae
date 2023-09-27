@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { LocalService } from '../shared/local.service';
+import { IList } from './list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ListService {
   // Event to update UI
   update = new EventEmitter<any>()
 
-  itemLists: {id: string, title: string}[] = []
+  itemLists: IList[] = []
 
   get() {
     const store = this.localService.getData('lists')
@@ -22,19 +23,45 @@ export class ListService {
     return this.itemLists
   }
 
-  create(storeId: string, title: string) {
+  getById(id: string) {
+    const listStore = this.get()
+    const selectedList = listStore.find((list: { id: string; }) => list.id === id)
+
+    return selectedList
+  }
+
+  create(storeId: string, list: IList) {
     
     const store = {
       id: storeId,
-      title: title
+      title: list.title,
+      itemsConfig: {
+        useTitle: list.itemsConfig!.useTitle,
+        useTitleLeft: list.itemsConfig!.useTitleLeft,
+        useSubtitleLeft: list.itemsConfig!.useSubtitleLeft,
+        useDesc: list.itemsConfig!.useDesc
+      }
     }
 
     const storeItems = this.get()
     storeItems.push(store)
-    console.log('storeItems: ', storeItems)
 
     const storeObject = JSON.stringify(storeItems)
     this.localService.saveData('lists', storeObject)
+
+    this.update.emit()
+  }
+
+  delete(listId: string) {
+    function removeListtWithId(items: any[], id: any) {
+      return items.filter((list) => list.id !== id);
+    }
+
+    const storeItems = this.get()
+    const newListsArray = removeListtWithId(storeItems, listId)
+    const newStoreItems = JSON.stringify(newListsArray)
+    
+    this.localService.saveData('lists', newStoreItems)
 
     this.update.emit()
   }

@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>
+<h2 mat-dialog-title class="center-text">
   Neue List erstellen
 </h2>
 <form 
@@ -10,6 +10,7 @@
       mat-stretch-tabs>
 
       <mat-tab label="Allgemein">
+        <h2 class="h-2">Überschrift</h2>
         <mat-form-field required>
           <mat-label>Titel der List (wird als Überschrift angezeigt)</mat-label>
           <input matInput formControlName="title">
@@ -20,8 +21,25 @@
         </mat-form-field>
       </mat-tab>
 
-      <mat-tab label="Einstellungen">
-        
+      <mat-tab label="Einstellungen der Einträge">
+        <h2 class="h-2">Linke Seite</h2>
+        <div class="settings-grid">
+          <mat-slide-toggle formControlName="useTitleLeft">
+            Überschrift anzeigen (Zeitraum)
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="useSubtitleLeft">
+            Untertitel anzeigen (Firma)
+          </mat-slide-toggle>
+        </div>
+        <h2 class="h-2 space-content-block--top ">Rechte Seite</h2>
+        <div class="settings-grid">
+          <mat-slide-toggle formControlName="useTitle">
+            Überschrift anzeigen (Beschäftig als)
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="useDesc">
+            Fließtext anzeigen (Tätigkeiten)
+          </mat-slide-toggle>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </mat-dialog-content>

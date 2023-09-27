@@ -1,0 +1,32 @@
+[
+  {
+    "id":"berufserfahrungen",
+    "title":"Berufserfahrungen",
+    "itemsConfig": {
+      "useTitle":false,
+      "useTitleLeft":false,
+      "useSubtitleLeft":false,
+      "useDesc":false
+    }
+},{
+  "id":"n-o-u-e-a-u-o",
+  "title":"ñ ó ú é ä ü ö",
+  "itemsConfig":{
+    "useTitle":false,
+    "useTitleLeft":false,
+    "useSubtitleLeft":false,
+    "useDesc":false
+  }
+},{
+  "id":"test",
+  "title":"Test",
+  "itemsConfig":{
+    "useTitle":true,
+    "useTitleLeft":true,
+    "useSubtitleLeft":true,
+    "useDesc":true
+  }
+},{
+  "id":"test-2",
+  "title":"test 2",
+  "itemsConfig":{"useTitle":false,"useTitleLeft":false,"useSubtitleLeft":false,"useDesc":false}}]
