@@ -1,10 +1,13 @@
 Anlegen dynamischer listen funktioniert, mit dummy item
 
 Nächste Schritte:
-1. Dialog für anlegen einer Liste mit title, ggf. Einstellungen für die items (Mit zeitraum, mit firma, mit titel, mit beschreibung)
-2. Dialog für anlegen eines Items in der Liste (felder ein- bzw. ausblenden anhand der config der Liste)
-3. testen ob auch spanische Buchstaben funktionieren für Titel und texte...
-4. Löschen einzelner items
-5. löschen ganzer listen
-6. bearbeiten einzelner items
-7. bearbeiten einzelner listen
+1. Dialog für anlegen eines Items in der Liste (felder ein- bzw. ausblenden anhand der config der Liste)
+2. Löschen einzelner items
+3. bearbeiten einzelner items
+4. bearbeiten einzelner listen
+5. Mehrsprachigkeit für Titel und Dialoge ( DE, ES, EN), mit Sprachumschalter
+6. Seite hinzufügen einbauen + Listen auf diesen Seiten
+7. Styling grade ziehen, abstände usw.
+8. Version 1.0 fertig
+9. Version online verfügbar machen
+

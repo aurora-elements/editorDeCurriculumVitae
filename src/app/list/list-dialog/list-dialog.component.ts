@@ -9,13 +9,19 @@ import { IList } from '../list.model';
   styleUrls: ['./list-dialog.component.scss']
 })
 export class ListDialogComponent implements OnInit {
-  form: FormGroup = new FormGroup({})
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialog: IList,
     private fb: FormBuilder) {
 
   }
+
+  @Output()
+  submitAddEvent = new EventEmitter<IList>()
+
+  @Output()
+  submitEditEvent = new EventEmitter<IList>()
+
+  form: FormGroup = new FormGroup({})
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -25,14 +31,22 @@ export class ListDialogComponent implements OnInit {
       useTitle: [true, [Validators.requiredTrue]],
       useDesc: [true, [Validators.requiredTrue]],
     })
+
+    if (this.dialog) {
+      this.form = this.fb.group({
+        title: ['', [Validators.required]],
+        useTitleLeft: [this.dialog.itemsConfig?.useTitleLeft, [Validators.requiredTrue]],
+        useSubtitleLeft: [this.dialog.itemsConfig?.useSubtitleLeft, [Validators.requiredTrue]],
+        useTitle: [this.dialog.itemsConfig?.useTitle, [Validators.requiredTrue]],
+        useDesc: [this.dialog.itemsConfig?.useDesc, [Validators.requiredTrue]],
+      })
+      this.form?.patchValue(this.dialog);
+    }
   }
 
   get f() {
     return this.form.controls;
   }
-  
-  @Output()
-  submitAddEvent = new EventEmitter<IList>()
 
   onSubmit() {
     let list: IList
@@ -42,17 +56,30 @@ export class ListDialogComponent implements OnInit {
     let normalizeTitle = trimmedTitle.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     let formattedTitle = normalizeTitle.replace(/\s+/g, '-');
 
-    list = {
-      id: formattedTitle,
-      title: this.form.value.title,
-      itemsConfig: {
-        useTitle: this.form.value.useTitle,
-        useTitleLeft: this.form.value.useTitleLeft,
-        useSubtitleLeft: this.form.value.useSubtitleLeft,
-        useDesc: this.form.value.useDesc,
+    if(this.dialog) {
+      list = {
+        id: this.dialog.id,
+        title: this.form.value.title,
+        itemsConfig: {
+          useTitle: this.form.value.useTitle,
+          useTitleLeft: this.form.value.useTitleLeft,
+          useSubtitleLeft: this.form.value.useSubtitleLeft,
+          useDesc: this.form.value.useDesc,
+        }
       }
+      this.submitEditEvent.emit(list)
+    } else {
+      list = {
+        id: formattedTitle,
+        title: this.form.value.title,
+        itemsConfig: {
+          useTitle: this.form.value.useTitle,
+          useTitleLeft: this.form.value.useTitleLeft,
+          useSubtitleLeft: this.form.value.useSubtitleLeft,
+          useDesc: this.form.value.useDesc,
+        }
+      } 
+      this.submitAddEvent.emit(list)     
     }
- 
-      this.submitAddEvent.emit(list)
   }
 }

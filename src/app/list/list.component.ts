@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ItemService } from './list-item/list-item.service';
 import { LocalService } from '../shared/local.service';
 import { ListService } from './list.service';
-import { ListDialogComponent } from './list-dialog/list-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { IListItem } from './item.model';
-import { IList } from './list.model';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { ListDialogComponent } from './list-dialog/list-dialog.component';
+import { IList } from './list.model';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +18,8 @@ export class ListComponent implements OnInit {
   storeId!: string
   
   headline: string = `List-${Math.random().toString(36).slice(2)}`
+
+  list!: IList;
 
   items!: IListItem[];
 
@@ -38,8 +40,8 @@ export class ListComponent implements OnInit {
       const itemsObject = JSON.parse(store)
 
       this.items = this.itemService.get(this.storeId)
-      const list = itemsObject.find((list: { id: string; }) => list.id === this.storeId)
-      this.headline = list.title 
+       this.list = itemsObject.find((list: { id: string; }) => list.id === this.storeId)
+      this.headline = this.list.title 
     }
   }
 
@@ -56,5 +58,17 @@ export class ListComponent implements OnInit {
     })
   }
 
-  edit() {}
+  edit() {
+    const dialogRef = this.dialog.open(ListDialogComponent, {
+      width: '500px',
+      disableClose: true,
+      data: this.list
+    })
+
+    dialogRef.componentInstance.submitEditEvent.subscribe(list => {
+      if (list) {
+        this.listService.edit(list)
+      }
+    })
+  }
 }

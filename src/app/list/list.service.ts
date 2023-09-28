@@ -52,6 +52,31 @@ export class ListService {
     this.update.emit()
   }
 
+  // edit ist nicht fertig
+  edit(list: IList) {
+    const storeItems = this.get()
+
+    function update(arr: IList[], id: string, updatedData: IList) {
+      return arr.map(
+        (item) => (item.id === id ? { 
+            ...item, 
+            ...updatedData 
+          } : item
+        )
+      )
+    }
+
+    const result = update(storeItems, list.id, list)
+
+    this.itemLists = result
+
+    const storeObject = JSON.stringify(this.itemLists)
+    this.localService.saveData('lists', storeObject)
+
+    this.update.emit()
+    
+  }
+
   delete(listId: string) {
     function removeListtWithId(items: any[], id: any) {
       return items.filter((list) => list.id !== id);

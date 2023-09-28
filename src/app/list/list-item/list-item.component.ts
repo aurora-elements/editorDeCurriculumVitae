@@ -31,7 +31,9 @@ export class ListItemComponent implements OnInit {
 
   edit() {}
 
-  add() {}
+  add() {
+    
+  }
 
   delete() {}
 }
