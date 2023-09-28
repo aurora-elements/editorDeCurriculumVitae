@@ -1,11 +1,5 @@
 <aside class="content-left">
   <app-avatar />
-  <div class="avatar-wrapper">
-    <img 
-      class="avatar" 
-      [src]="avatarUrl" />
-    <app-clickable-overlay (click)="editAvatar()" />
-  </div>
 </aside>
 <section class="content-right">
   <header class="header" (click)="editHeader()">
@@ -18,5 +12,4 @@
     </h2>
     <app-clickable-overlay />
   </header>
-
 </section>

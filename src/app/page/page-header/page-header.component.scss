@@ -1,11 +1,21 @@
 :host {
   display: grid;
   grid-template-columns: var(--left-size) 1fr;
-  grid-template-rows: var(--left-size);
+  grid-template-rows: calc(var(--left-size) - 1cm);
 }
 
 .content-left {
   padding-right: var(--space);
+  display: grid;
+  align-content: center;
+}
+.content-right {
+  display: grid;
+  align-content: center;
+}
+
+.header {
+  padding: 0;
 }
 
 .header, .avatar-wrapper {
