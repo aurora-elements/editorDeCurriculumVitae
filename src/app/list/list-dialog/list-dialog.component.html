@@ -54,7 +54,8 @@
       [mat-dialog-close]="true"
       color="primary"
       type="submit">
-      Liste erstellen
+      <span *ngIf="!dialog">Liste erstellen</span>
+      <span *ngIf="dialog">Änderungen speichern</span>
     </button>
   </mat-dialog-actions>
 </form>

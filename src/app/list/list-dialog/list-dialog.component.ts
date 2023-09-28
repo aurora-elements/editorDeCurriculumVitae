@@ -49,36 +49,28 @@ export class ListDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    let list: IList
-
     let title = this.form.value.title.toLowerCase() 
     let trimmedTitle = title.trim();
     let normalizeTitle = trimmedTitle.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     let formattedTitle = normalizeTitle.replace(/\s+/g, '-');
+    
+    const form = this.form.value
 
-    if(this.dialog) {
-      list = {
-        id: this.dialog.id,
-        title: this.form.value.title,
-        itemsConfig: {
-          useTitle: this.form.value.useTitle,
-          useTitleLeft: this.form.value.useTitleLeft,
-          useSubtitleLeft: this.form.value.useSubtitleLeft,
-          useDesc: this.form.value.useDesc,
-        }
+    const list: IList = {
+      id: '',
+      title: form.title,
+      itemsConfig: {
+        useTitle: form.useTitle,
+        useTitleLeft: form.useTitleLeft,
+        useSubtitleLeft: form.useSubtitleLeft,
+        useDesc: form.useDesc,
       }
+    }
+    if(this.dialog) {
+      list.id = this.dialog.id
       this.submitEditEvent.emit(list)
     } else {
-      list = {
-        id: formattedTitle,
-        title: this.form.value.title,
-        itemsConfig: {
-          useTitle: this.form.value.useTitle,
-          useTitleLeft: this.form.value.useTitleLeft,
-          useSubtitleLeft: this.form.value.useSubtitleLeft,
-          useDesc: this.form.value.useDesc,
-        }
-      } 
+      list.id = formattedTitle
       this.submitAddEvent.emit(list)     
     }
   }
