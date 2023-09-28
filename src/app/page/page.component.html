@@ -28,10 +28,9 @@
     *ngIf="showAboutMe" 
     class="content-block" />
     
-    <!-- <app-experience-list class="space-content-block--top space-content-block" /> -->
     <app-list 
       *ngFor="let itemList of itemLists" 
       [storeId]="itemList.id"
-      class="space-content-block--top space-content-block" />
+      class="space-content-block--top" />
 </section>
 
