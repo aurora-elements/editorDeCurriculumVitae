@@ -41,4 +41,8 @@ export class ItemService {
 
     return this.items
   }
+
+  delete(storeId: string) {
+    this.localService.removeData(storeId)
+  }
 }

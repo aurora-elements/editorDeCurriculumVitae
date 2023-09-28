@@ -88,6 +88,8 @@ export class ListService {
     
     this.localService.saveData('lists', newStoreItems)
 
+    this.localService.removeData(listId)
+
     this.update.emit()
   }
 }
