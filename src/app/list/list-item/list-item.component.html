@@ -1,0 +1,21 @@
+<aside>
+  <span *ngIf="store.itemsConfig.useTitleLeft">
+    {{ item.titleLeft }}
+  </span>
+  <span *ngIf="store.itemsConfig.useSubtitleLeft">
+    {{ item.subtitleLeft}}
+  </span>
+</aside>
+<section>
+  <header *ngIf="store.itemsConfig.useTitle">
+    <strong>
+      {{ item.title }}
+    </strong>
+  </header>
+  <p *ngIf="store.itemsConfig.useDesc">
+    {{ item.desc}}
+  </p>
+</section>
+<app-clickable-overlay class="sub-item" (editEvent)="edit()">
+  <mat-icon (click)="delete()" class="after-edit">delete_forever</mat-icon>
+</app-clickable-overlay>

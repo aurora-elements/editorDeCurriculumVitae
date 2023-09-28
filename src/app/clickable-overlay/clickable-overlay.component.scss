@@ -1,14 +1,29 @@
 :host {
+  transition: opacity 100ms linear 0s;
+  background-color: rgba(194, 24, 91, 0.1);
   width: 100%;
   height: 100%;
   position: absolute;
-  cursor: pointer;
-  top:0;
-  left:0;
+  top: -10px;
+  left: -10px;
+  padding: 10px;
+  box-sizing: content-box;
+  border-radius: 5px;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
+  &.sub-item {
+    mat-icon,
+    ::ng-deep mat-icon {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
   div {
-    transition: opacity 100ms linear 0s;
     position: absolute;
-    opacity: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -16,19 +31,16 @@
     grid-auto-flow: column;
     grid-gap: 10px;
   }
-  mat-icon, ::ng-deep mat-icon {
-    background: rgba(0,0,0,.9);
+
+  mat-icon,
+  ::ng-deep mat-icon {
+    background: #c2185b;
     border-radius: 100%;
     width: 40px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     color: white;
-  }
-
-  &:hover {
-    div {
-      opacity: .8;
-    }
+    cursor: pointer;
   }
 }

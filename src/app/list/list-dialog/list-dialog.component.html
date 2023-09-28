@@ -1,0 +1,62 @@
+<h2 mat-dialog-title class="center-text">
+  <span *ngIf="!dialog">Neue Liste erstellen</span>
+  <span *ngIf="dialog">Liste bearbeiten</span>
+</h2>
+<form 
+  [formGroup]="form" 
+  (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-tab-group
+      animationDuration="0ms"
+      mat-stretch-tabs>
+
+      <mat-tab label="Allgemein">
+        <h2 class="h-2">Überschrift</h2>
+        <mat-form-field required>
+          <mat-label>Titel der List (wird als Überschrift angezeigt)</mat-label>
+          <input matInput formControlName="title">
+          <mat-icon matSuffix>title</mat-icon>
+          <mat-error *ngIf="f['title'].touched && f['title'].invalid">
+            Bitte trag einen Titel für deine Liste ein
+          </mat-error>
+        </mat-form-field>
+      </mat-tab>
+
+      <mat-tab label="Einstellungen der Einträge">
+        <h2 class="h-2">Linke Seite</h2>
+        <div class="settings-grid">
+          <mat-slide-toggle formControlName="useTitleLeft">
+            Überschrift anzeigen (Zeitraum)
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="useSubtitleLeft">
+            Untertitel anzeigen (Firma)
+          </mat-slide-toggle>
+        </div>
+        <h2 class="h-2 space-content-block--top ">Rechte Seite</h2>
+        <div class="settings-grid">
+          <mat-slide-toggle formControlName="useTitle">
+            Überschrift anzeigen (Beschäftig als)
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="useDesc">
+            Fließtext anzeigen (Tätigkeiten)
+          </mat-slide-toggle>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button 
+      mat-flat-button
+      mat-dialog-close>
+      Abbrechen
+    </button>
+    <button 
+      mat-flat-button 
+      [mat-dialog-close]="true"
+      color="primary"
+      type="submit">
+      <span *ngIf="!dialog">Liste erstellen</span>
+      <span *ngIf="dialog">Änderungen speichern</span>
+    </button>
+  </mat-dialog-actions>
+</form>

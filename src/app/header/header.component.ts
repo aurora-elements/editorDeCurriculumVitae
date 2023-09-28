@@ -1,5 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,16 @@ import { Component, HostListener, Inject } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  elementToZoom!: HTMLElement;
+  bookTransformValue: string = ''
+  
+  constructor(
+  ) {}
+
  windowPrint() {
+   this.elementToZoom = document.querySelector('.book')!
+   this.elementToZoom.style!.transform = 'scale(1)'
    return window.print()
  }
+
 }

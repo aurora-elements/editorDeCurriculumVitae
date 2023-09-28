@@ -1,5 +1,5 @@
 :host {
-  --left-size: 4.5cm;
+  --left-size: 5cm;
   padding: var(--space);
   margin: 10px auto;
   border-radius: 5px;
@@ -40,6 +40,13 @@
     grid-area: header;
     position: relative;
   }
+}
+
+// Hinzufügen Button
+.add-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 @media print {
